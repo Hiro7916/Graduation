@@ -70,6 +70,7 @@
     <Compile Include="Assets\script\MagicUI_Control.cs" />
     <Compile Include="Assets\script\playerScript\MagicAction.cs" />
     <Compile Include="Assets\script\playerScript\PlayerMove.cs" />
+    <Compile Include="Assets\script\UISprict\focusScript.cs" />
     <Compile Include="Assets\stageScript.cs" />
     <Compile Include="Assets\ThunderControl.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
