@@ -68,6 +68,14 @@
     <Compile Include="Assets\SaveObjControl.cs" />
     <Compile Include="Assets\SaveUIControl.cs" />
     <Compile Include="Assets\script\MagicUI_Control.cs" />
+    <Compile Include="Assets\script\MenuScript\ActiveButton.cs" />
+    <Compile Include="Assets\script\MenuScript\ActiveUI_Obj.cs" />
+    <Compile Include="Assets\script\MenuScript\camera.cs" />
+    <Compile Include="Assets\script\MenuScript\InforMation.cs" />
+    <Compile Include="Assets\script\MenuScript\MapScript.cs" />
+    <Compile Include="Assets\script\MenuScript\playerMove.cs" />
+    <Compile Include="Assets\script\MenuScript\Select.cs" />
+    <Compile Include="Assets\script\MenuScript\Set.cs" />
     <Compile Include="Assets\script\playerScript\MagicAction.cs" />
     <Compile Include="Assets\script\playerScript\PlayerMove.cs" />
     <Compile Include="Assets\script\UISprict\focusScript.cs" />
