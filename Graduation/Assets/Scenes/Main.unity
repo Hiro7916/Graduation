@@ -6664,7 +6664,7 @@ PrefabInstance:
     - target: {fileID: 3520484441057638325, guid: 81ae957014b3e7f41a36e1bc1cab90e5,
         type: 3}
       propertyPath: m_Name
-      value: SaveObj (1)
+      value: o_SaveObj (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3520484441057638327, guid: 81ae957014b3e7f41a36e1bc1cab90e5,
         type: 3}
@@ -13116,7 +13116,7 @@ PrefabInstance:
     - target: {fileID: 3520484441057638325, guid: 81ae957014b3e7f41a36e1bc1cab90e5,
         type: 3}
       propertyPath: m_Name
-      value: SaveObj
+      value: o_SaveObj
       objectReference: {fileID: 0}
     - target: {fileID: 3520484441057638327, guid: 81ae957014b3e7f41a36e1bc1cab90e5,
         type: 3}

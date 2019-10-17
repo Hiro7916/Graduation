@@ -60,32 +60,64 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EffectBallControl.cs" />
-    <Compile Include="Assets\EnemyState.cs" />
-    <Compile Include="Assets\ParticleBall.cs" />
-    <Compile Include="Assets\particleControl.cs" />
-    <Compile Include="Assets\SaveControl.cs" />
-    <Compile Include="Assets\SaveObjControl.cs" />
-    <Compile Include="Assets\SaveUIControl.cs" />
-    <Compile Include="Assets\script\MagicUI_Control.cs" />
-    <Compile Include="Assets\script\playerScript\MagicAction.cs" />
-    <Compile Include="Assets\script\playerScript\PlayerMove.cs" />
-    <Compile Include="Assets\stageScript.cs" />
-    <Compile Include="Assets\ThunderControl.cs" />
+    <Compile Include="Assets\script\EnemyScript\Boss\s_BossMove.cs" />
+    <Compile Include="Assets\script\EnemyScript\s_AttackEnemyControl.cs" />
+    <Compile Include="Assets\script\EnemyScript\s_EnemyAttack.cs" />
+    <Compile Include="Assets\script\EnemyScript\s_EnemyState.cs" />
+    <Compile Include="Assets\script\MagicScript\s_EffectBallControl.cs" />
+    <Compile Include="Assets\script\MagicScript\s_MagicObjectControl.cs" />
+    <Compile Include="Assets\script\MagicScript\s_ParticleBall.cs" />
+    <Compile Include="Assets\script\MagicScript\s_ParticleControl.cs" />
+    <Compile Include="Assets\script\MagicScript\s_ThunderControl.cs" />
+    <Compile Include="Assets\script\playerScript\s_MagicAction.cs" />
+    <Compile Include="Assets\script\playerScript\s_PlayerCameraControl.cs" />
+    <Compile Include="Assets\script\playerScript\s_PlayerControl.cs" />
+    <Compile Include="Assets\script\playerScript\s_PlayerGuard.cs" />
+    <Compile Include="Assets\script\playerScript\s_PlayerHaveMagic.cs" />
+    <Compile Include="Assets\script\playerScript\s_PlayerMove.cs" />
+    <Compile Include="Assets\script\playerScript\s_PlayerSaveControl.cs" />
+    <Compile Include="Assets\script\playerScript\s_PlayerSavePointMemory.cs" />
+    <Compile Include="Assets\script\playerScript\s_PlayerSpawn.cs" />
+    <Compile Include="Assets\script\playerScript\s_PlayerStatus.cs" />
+    <Compile Include="Assets\script\s_ExpControl.cs" />
+    <Compile Include="Assets\script\s_Property.cs" />
+    <Compile Include="Assets\script\Save&amp;Load\s_DataLoader.cs" />
+    <Compile Include="Assets\script\Save&amp;Load\s_DataSave.cs" />
+    <Compile Include="Assets\script\Save&amp;Load\s_DetaCreate.cs" />
+    <Compile Include="Assets\script\Save&amp;Load\s_GameData.cs" />
+    <Compile Include="Assets\script\Save&amp;Load\s_LoadManager.cs" />
+    <Compile Include="Assets\script\Save&amp;Load\s_SaveObjControl.cs" />
+    <Compile Include="Assets\script\Save&amp;Load\s_SelectWind.cs" />
+    <Compile Include="Assets\script\Save&amp;Load\s_SelectWindManager.cs" />
+    <Compile Include="Assets\script\Save&amp;Load\s_WarpWind.cs" />
+    <Compile Include="Assets\script\SceneScript\s_SceneManager.cs" />
+    <Compile Include="Assets\script\SystemScript\s_PoseControl.cs" />
+    <Compile Include="Assets\script\UiScript\s_DamageUiControl.cs" />
+    <Compile Include="Assets\script\UiScript\s_MagicLvControl.cs" />
+    <Compile Include="Assets\script\UiScript\s_MagicUI_Control.cs" />
+    <Compile Include="Assets\script\UiScript\s_PlayerHpUI.cs" />
+    <Compile Include="Assets\script\UiScript\s_SaveUIControl.cs" />
+    <None Include="Assets\SaveData\1\playData.txt" />
+    <None Include="Assets\SaveData\1\playerMagicData.txt" />
+    <None Include="Assets\SaveData\2\playData.txt" />
+    <None Include="Assets\SaveData\2\playerData.txt" />
+    <None Include="Assets\SaveData\8\playData.txt" />
+    <None Include="Assets\SaveData\1\playerData.txt" />
+    <None Include="Assets\SaveData\8\playerData.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/usaha/Desktop/Graduation/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/ss/Graduation/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/usaha/Desktop/Graduation/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/ss/Graduation/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/usaha/Desktop/Graduation/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/ss/Graduation/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/usaha/Desktop/Graduation/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/ss/Graduation/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/usaha/Desktop/Graduation/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/ss/Graduation/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -289,13 +321,13 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/usaha/Desktop/Graduation/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/ss/Graduation/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/usaha/Desktop/Graduation/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/ss/Graduation/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/usaha/Desktop/Graduation/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/ss/Graduation/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
