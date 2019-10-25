@@ -84,7 +84,7 @@ public class s_PlayerStatus : MonoBehaviour
         if(hp<=0)
         {
             SetIsDead(true);
-            GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("Title");
+            GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("TitleH");
         }
     }
 
