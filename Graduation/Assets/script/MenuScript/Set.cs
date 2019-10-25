@@ -47,6 +47,16 @@ public class Set : MonoBehaviour
         Save = num;
     }
 
+    public void Window_OnClick(int num)
+    {
+        magicnumber = select.GetComponent<Select>().GETSELECT();
+        magicSave = magicnumber;
+
+        Save = num;
+
+        MAGICNUM();
+    }
+
     public void IDOU()
     {
         //移動したら消す
