@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Text;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 ///<summary>データロード</summary>
 public class s_LoadManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class s_LoadManager : MonoBehaviour
     ///<summary>選択しているデータ番号</summary>
     private int target;
 
+
+    public Text text;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,15 +67,22 @@ public class s_LoadManager : MonoBehaviour
     ///<summary>全てのデータを作成</summary>
     private void Create(int num)
     {
+
         //フォルダがあるか確認
-        if (Directory.Exists("Assets/SaveData"))
+        if (Directory.Exists(Application.dataPath + "/StreamingAssets/SaveData"))
         {
+
+
             //全てのファイルの名前を取得
-            string[] subFolyder = Directory.GetDirectories("Assets/SaveData", "*", SearchOption.AllDirectories);
+            //  string[] subFolyder = Directory.GetDirectories(Application.streamingAssetsPath + "/SaveData", "*", SearchOption.AllDirectories);
+            string[] subFolyder = Directory.GetDirectories(Application.dataPath + "/StreamingAssets/SaveData", "*", SearchOption.AllDirectories);
+     
             //全てのデータを生成
             for (int i = 0; i < subFolyder.Length; i++)
             {
-                DataCreate(subFolyder[i]);
+                int subNum = subFolyder[i].Length;
+                DataCreate(Application.dataPath + "/StreamingAssets/SaveData/" + subFolyder[i][subNum-1]);
+            
             }
             //シーンがタイトルならNewGameを生成
             if (num == 0)
@@ -103,13 +113,16 @@ public class s_LoadManager : MonoBehaviour
     ///<summary>ファイルを読み込みデータを生成</summary>
     private void DataCreate(string str)
     {
+        // text.text += failPa; ;
         //引数の名前のセーブデータのtxtを取得
-        string[] s = File.ReadAllLines(str + "/playData.txt", Encoding.GetEncoding("Shift_JIS"));
+        string[] s = File.ReadAllLines(str+"/playData.txt");
+        //string[] s = File.ReadAllLines(str + "/playData.txt", Encoding.GetEncoding("Shift_JIS"));
         //セーブデータのオブジェクトを生成
         GameObject obj = Instantiate(savedData);
-
+       // text.text += s[0];
         //リストに追加
         saveDataList.Add(obj);
+        Debug.Log("aaaaaaaa"+str);
         fileName.Add(str);
 
         //上からデータ番号を設定

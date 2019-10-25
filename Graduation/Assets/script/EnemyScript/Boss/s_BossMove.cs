@@ -161,7 +161,7 @@ public class s_BossMove : MonoBehaviour
             switch (attackNumber)
             {
                 case 0:
-                    if (other.gameObject.name == "player" || other.gameObject.name == "stage")
+                    if (other.gameObject.name == "o_player" || other.gameObject.name == "stage")
                     {
                         attackOn = false;
                         attackThinkTimer = Random.Range(60 * 3, 60 * 6);
@@ -172,19 +172,19 @@ public class s_BossMove : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-     
-        //if (attackOn)
-        //{
-        //    switch (attackNumber)
-        //    {
-        //        case 0:
-        //            if (collision.gameObject.name == "player"|| collision.gameObject.name == "stage")
-        //            {
-        //                attackOn = false;
-        //                Debug.Log("on");
-        //            }
-        //            break;
-        //    }
-        //}
+
+        if (attackOn)
+        {
+            switch (attackNumber)
+            {
+                case 0:
+                    if (collision.gameObject.name == "o_player" || collision.gameObject.name == "stage")
+                    {
+                        attackOn = false;
+                        attackThinkTimer = Random.Range(60 * 3, 60 * 6);
+                    }
+                    break;
+            }
+        }
     }
 }

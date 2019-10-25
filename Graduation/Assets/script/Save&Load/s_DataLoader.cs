@@ -30,7 +30,7 @@ public class s_DataLoader : MonoBehaviour
                 //    CreateNewGame();
                 //}
 
-                GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("main");
+                GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("Main");
                 s_PoseControl.ChangeWindPose(false);
             }
         }
@@ -56,7 +56,7 @@ public class s_DataLoader : MonoBehaviour
         int directoryNum = 1;
 
         //フォルダがあるか確認
-        if (Directory.Exists("Assets/SaveData"))
+        if (Directory.Exists("Assets/StreamingAssets/SaveData"))
         {
           
             //全てのファイルの名前を取得

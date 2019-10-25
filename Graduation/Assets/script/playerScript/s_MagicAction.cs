@@ -23,7 +23,7 @@ public class s_MagicAction : MonoBehaviour
         nowMagicNumber = 0;
         //選択中の魔法の名前を表示
         string str = GetComponent<s_PlayerHaveMagic>().GetMagic(GetComponent<s_PlayerHaveMagic>().GetMagicNames()[nowMagicNumber]).name;
-        magicUI.GetComponent<s_MagicUI_Control>().UI_Change(str.Remove(0,2));
+        magicUI.GetComponent<s_MagicUI_Control>().UI_Change(str.Remove(0, 2));
         //lv表表示の変更
         int lv = GetComponent<s_PlayerHaveMagic>().GetMagic(GetComponent<s_PlayerHaveMagic>().GetMagicNames()[nowMagicNumber]).GetComponent<s_MagicObjectControl>().GetLv();
         magicLvUI.GetComponent<s_MagicLvControl>().ChengeText(lv.ToString());

@@ -97,13 +97,13 @@
     <Compile Include="Assets\script\UiScript\s_MagicUI_Control.cs" />
     <Compile Include="Assets\script\UiScript\s_PlayerHpUI.cs" />
     <Compile Include="Assets\script\UiScript\s_SaveUIControl.cs" />
-    <None Include="Assets\SaveData\1\playData.txt" />
-    <None Include="Assets\SaveData\1\playerMagicData.txt" />
-    <None Include="Assets\SaveData\2\playData.txt" />
-    <None Include="Assets\SaveData\2\playerData.txt" />
-    <None Include="Assets\SaveData\8\playData.txt" />
-    <None Include="Assets\SaveData\1\playerData.txt" />
-    <None Include="Assets\SaveData\8\playerData.txt" />
+    <None Include="Assets\StreamingAssets\SaveData\1\playData.txt" />
+    <None Include="Assets\StreamingAssets\SaveData\1\playerMagicData.txt" />
+    <None Include="Assets\StreamingAssets\SaveData\2\playData.txt" />
+    <None Include="Assets\StreamingAssets\SaveData\2\playerData.txt" />
+    <None Include="Assets\StreamingAssets\SaveData\8\playData.txt" />
+    <None Include="Assets\StreamingAssets\SaveData\1\playerData.txt" />
+    <None Include="Assets\StreamingAssets\SaveData\8\playerData.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/ss/Graduation/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

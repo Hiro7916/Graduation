@@ -35,7 +35,7 @@ public class s_PlayerHaveMagic : MonoBehaviour
         names = new List<string>();
         if (Directory.Exists(s_GameData.GetLoodFileName()))
         {
-            string[] deta = File.ReadAllLines("Assets/SaveData\\1" + "/playerMagicData.txt", Encoding.GetEncoding("Shift_JIS"));
+            string[] deta = File.ReadAllLines(Application.dataPath + "/StreamingAssets/SaveData/"+"1" + "/playerMagicData.txt");
             for (int i = 0; i < deta.Length; i++)
             {
                 string[] strs = deta[i].Split('^');
@@ -49,7 +49,7 @@ public class s_PlayerHaveMagic : MonoBehaviour
         }
         else
         {
-            string[] deta = File.ReadAllLines("Assets/SaveData\\1" + "/playerMagicData.txt", Encoding.GetEncoding("Shift_JIS"));
+            string[] deta = File.ReadAllLines(Application.dataPath + "/StreamingAssets/SaveData/" + "1" + "/playerMagicData.txt");
             for (int i = 0; i < deta.Length; i++)
             {
                 string[] strs = deta[i].Split('^');
