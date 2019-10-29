@@ -97,6 +97,7 @@
     <Compile Include="Assets\script\UiScript\s_MagicUI_Control.cs" />
     <Compile Include="Assets\script\UiScript\s_PlayerHpUI.cs" />
     <Compile Include="Assets\script\UiScript\s_SaveUIControl.cs" />
+    <Compile Include="Assets\script\UISprict\focusScript.cs" />
     <None Include="Assets\StreamingAssets\SaveData\1\playData.txt" />
     <None Include="Assets\StreamingAssets\SaveData\1\playerMagicData.txt" />
     <None Include="Assets\StreamingAssets\SaveData\2\playData.txt" />

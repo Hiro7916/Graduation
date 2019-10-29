@@ -22,7 +22,7 @@ public class s_LoadManager : MonoBehaviour
     void Start()
     {
         string s = SceneManager.GetActiveScene().name;
-        if (s != "Title")
+        if (s != "TitleH")
             return;
         //データリストの生成
         saveDataList = new List<GameObject>();
@@ -33,7 +33,7 @@ public class s_LoadManager : MonoBehaviour
         int sceneNumber = 0;
         switch(s)
         {
-            case "Title":
+            case "TitleH":
                 sceneNumber = 0;
                 break;      
         }
@@ -49,7 +49,7 @@ public class s_LoadManager : MonoBehaviour
         int sceneNumber = 0;
         switch (str)
         {
-            case "Title":
+            case "TitleH":
                 sceneNumber = 0;
                 break;
             case "Main":
