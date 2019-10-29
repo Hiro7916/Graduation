@@ -20,6 +20,7 @@ public class s_PlayerControl : MonoBehaviour
         //移動
         GetComponent<s_PlayerMove>().Move(transform);
         GetComponent<s_PlayerMove>().Rotation(transform);
+        GetComponent<s_PlayerMove>().Jump(transform);
         //カメラ
         GetComponent<s_PlayerCameraControl>().CameraTarget(transform);
         CameraTargetChange();

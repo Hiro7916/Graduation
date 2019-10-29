@@ -18,7 +18,10 @@ public class s_MagicObjectControl: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach (var mg in magicList)
+        {
+            mg.GetComponent<s_ParticleControl>().SetLv(lv);
+        }
     }
 
     // Update is called once per frame

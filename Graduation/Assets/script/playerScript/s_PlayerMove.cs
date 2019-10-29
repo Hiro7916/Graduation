@@ -98,5 +98,14 @@ public class s_PlayerMove : MonoBehaviour
         playerCamera.transform.Rotate(Vector3.right, rot.y);
 
     }
-
+    ///<summary>ジャンプ</summary>
+    public void Jump(Transform tran)
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Vector3 vel = Vector3.zero;
+            vel.y = 10;
+            rig.velocity += vel;
+        }
+    }
 }

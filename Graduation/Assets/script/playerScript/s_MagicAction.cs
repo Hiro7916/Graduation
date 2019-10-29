@@ -112,15 +112,17 @@ public class s_MagicAction : MonoBehaviour
         {
             //現在の魔法を取得
             activeParticl = GetComponent<s_PlayerHaveMagic>().GetMagic(GetComponent<s_PlayerHaveMagic>().GetMagicNames()[nowMagicNumber]).GetComponent<s_MagicObjectControl>().GetNowMagicObject();
-         
+
             //回転の初期化
             Quaternion quat = new Quaternion();
             quat.Normalize();
 
             //オブジェクトの生成
-            GameObject par = Instantiate(activeParticl, GameObject.Find("ParticleManager").transform.position, quat); 
-
- 　　　　　 //オブジェクトに情報を渡す
+            GameObject par = Instantiate(activeParticl, GameObject.Find("ParticleManager").transform.position, quat);
+            //パーティクルにLvを設定
+            par.GetComponent<s_ParticleControl>().SetLv(GetComponent<s_PlayerHaveMagic>().GetMagic(GetComponent<s_PlayerHaveMagic>().GetMagicNames()[nowMagicNumber]).GetComponent<s_MagicObjectControl>().GetLv());
+            Debug.Log(GetComponent<s_PlayerHaveMagic>().GetMagic(GetComponent<s_PlayerHaveMagic>().GetMagicNames()[nowMagicNumber]).GetComponent<s_MagicObjectControl>().GetLv());
+            //オブジェクトに情報を渡す
             s_ParticleControl pa=  par.GetComponent<s_ParticleControl>();
             //ボタンが押された瞬間をオブジェクトに知らせる
             pa.SetState("Down");

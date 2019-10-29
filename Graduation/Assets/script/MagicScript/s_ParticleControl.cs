@@ -6,6 +6,8 @@ public class s_ParticleControl : MonoBehaviour
 {
     ///<summary>入力状態</summary>
     private string butttonState;
+    ///<summary>現在のレベル</summary>
+    private int lv;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,4 +31,15 @@ public class s_ParticleControl : MonoBehaviour
     {
         return butttonState;
     }
+    ///<summary>lvのセット</summary>
+    public void SetLv(int num)
+    {
+        lv = num;
+    }
+    ///<summary>lvの取得</summary>
+    public int GetLv()
+    {
+        return lv;
+    }
+
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 ///<summary>ボスの挙動</summary>
 public class s_BossMove : MonoBehaviour
 {
+    ///<summary>フラグがたつまで行動しないよう</summary>
+    private bool moveOnCheck;
+
     ///<summary>行動をするかどうか</summary>
     private bool actionOn;
     ///<summary>プレイヤーを取得する</summary>
@@ -18,6 +21,7 @@ public class s_BossMove : MonoBehaviour
     public GameObject attackObj;
     private void Start()
     {
+        moveOnCheck = false;
         attackNumber = 0;
         actionOn = false;
         attackOn = false;
@@ -28,6 +32,9 @@ public class s_BossMove : MonoBehaviour
 
     private void Update()
     {
+        if (!moveOnCheck)
+            return;
+
         if (s_PoseControl.GetLoadPose())
             return;
 
@@ -65,6 +72,11 @@ public class s_BossMove : MonoBehaviour
                 
         }
 
+    }
+    ///<summary>ボスが行動できるかの設定</summary>
+    public void SetMoveOnCheck(bool bo)
+    {
+        moveOnCheck = bo;
     }
     ///<summary>距離を計算</summary>
     private float DistanceCheck(Vector3 vec)

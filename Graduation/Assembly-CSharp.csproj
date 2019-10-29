@@ -69,6 +69,7 @@
     <Compile Include="Assets\script\MagicScript\s_ParticleBall.cs" />
     <Compile Include="Assets\script\MagicScript\s_ParticleControl.cs" />
     <Compile Include="Assets\script\MagicScript\s_ThunderControl.cs" />
+    <Compile Include="Assets\script\ObjScript\DoorScript\s_DoorControl.cs" />
     <Compile Include="Assets\script\playerScript\s_MagicAction.cs" />
     <Compile Include="Assets\script\playerScript\s_PlayerCameraControl.cs" />
     <Compile Include="Assets\script\playerScript\s_PlayerControl.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\script\Save&amp;Load\s_SelectWindManager.cs" />
     <Compile Include="Assets\script\Save&amp;Load\s_WarpWind.cs" />
     <Compile Include="Assets\script\SceneScript\s_SceneManager.cs" />
+    <Compile Include="Assets\script\SwitchScript\s_BossSwitch.cs" />
     <Compile Include="Assets\script\SystemScript\s_PoseControl.cs" />
     <Compile Include="Assets\script\UiScript\s_DamageUiControl.cs" />
     <Compile Include="Assets\script\UiScript\s_MagicLvControl.cs" />
