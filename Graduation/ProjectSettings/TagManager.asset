@@ -6,6 +6,8 @@ TagManager:
   tags:
   - SavePoint
   - Enemy
+  - Magic
+  - stage
   layers:
   - Default
   - TransparentFX

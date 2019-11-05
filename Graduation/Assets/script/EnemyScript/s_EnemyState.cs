@@ -30,17 +30,30 @@ public class s_EnemyState : MonoBehaviour
     ///<summary>ダメージを受ける</summary>
     public void Damage(int dame,string propety)
     {
-        if (GetComponent<s_Property>() != null)
+        //if (GetComponent<s_Property>() != null)
+        //{
+        //    if(GetComponent<s_Property>().PropertyCheck(propety)==1)
+        //    {
+        //        dame *= 2;
+        //    }
+        //    if (GetComponent<s_Property>().PropertyCheck(propety) == 2)
+        //    {
+        //        dame /=2 ;
+        //    }
+        //}
+        if (transform.name == "Boss")
         {
-            if(GetComponent<s_Property>().PropertyCheck(propety)==1)
+            Debug.Log(propety);
+            if (propety == "水")
             {
                 dame *= 2;
             }
-            if (GetComponent<s_Property>().PropertyCheck(propety) == 2)
+            else
             {
-                dame /=2 ;
+                dame = 0;
             }
         }
+
 
         //hpを減らす
         hp -= dame;
