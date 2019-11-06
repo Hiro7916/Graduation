@@ -117,7 +117,7 @@ public class s_BossMove : MonoBehaviour
         Random rnd = new Random();
         actionNum = Random.Range(0, 3);
         preActionNum = actions.Count + 1;
-        Debug.Log("Think");
+       // Debug.Log("Think");
     }
     ///<summary>その場で待機(Action関数)</summary>
     private void WaitStart()

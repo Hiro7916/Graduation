@@ -50,12 +50,11 @@ public class s_DataSave : MonoBehaviour
         {
             selectWind.SetActive(true);
             myWind.SetActive(false);
-            foreach (Transform transform in selectWind.transform.Find("o_ScrollView").transform)
+            foreach (Transform transform in GameObject.Find("Panel").transform)
             {
                 var go = transform.gameObject;
                 Destroy(go);
-            }
-            selectWind.gameObject.transform.Find("t_SelectText").gameObject.SetActive(true);         
+            }     
         }
 
 
@@ -63,7 +62,7 @@ public class s_DataSave : MonoBehaviour
     private void Save()
     {
         GameObject player = GameObject.Find("o_player");
-        tx.text = GetComponent<s_LoadManager>().GetFileName();
+      //  tx.text = GetComponent<s_LoadManager>().GetFileName();
         string[] playdeta = File.ReadAllLines(GetComponent<s_LoadManager>().GetFileName() + "/playerData.txt");
         Debug.Log("on");
         playdeta[0] = "position^" + player.transform.position.x + "^" + player.transform.position.y+10 + "^" + player.transform.position.z;
@@ -72,6 +71,9 @@ public class s_DataSave : MonoBehaviour
         playdeta[0] = "saveday^" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Hour + "/" + DateTime.Now.Minute + "/" + DateTime.Now.Second;
         playdeta[1] = "playTime^"+player.GetComponent<s_PlayerStatus>().GetPlayHour()+':' + player.GetComponent<s_PlayerStatus>().GetPlayMinute() + ':' + player.GetComponent<s_PlayerStatus>().GetPlaySecond();
         File.WriteAllLines(GetComponent<s_LoadManager>().GetFileName() + "/playData.txt", playdeta);
+
+        //エネミーデータをセーブ
+        EnemySave();
 
     }
     ///<summary>NewGame時にデータフォルダを生成</summary>
@@ -121,4 +123,20 @@ public class s_DataSave : MonoBehaviour
         sw.WriteLine("position^" + 0 + "^" + 5 + "^" + 0);
         sw.Close();
     }
+
+    public void EnemySave()
+    {
+        string filiName = GetComponent<s_LoadManager>().GetFileName();
+        string[] playdeta=new string[100];
+
+        int num = 0;
+        foreach (Transform transform in GameObject.Find("EnemyList").transform)
+        {
+            playdeta[num] = transform.name + "^" + transform.position.x + "^" + transform.position.y + "^" + transform.position.z;
+            num++;
+        }
+
+        File.WriteAllLines(filiName + "/EnemyList.txt", playdeta);
+    }
+
 }

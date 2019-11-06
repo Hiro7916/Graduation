@@ -47,13 +47,13 @@ public class s_LoadManager : MonoBehaviour
         //データを読み込む
         Create();
     }
-    public void ListCreate(string str)
+    public void ListCreate()
     {
         //データリストの生成
         saveDataList = new List<GameObject>();
         fileName = new List<string>();
         //データを読み込み
-        Create();
+        SaveWindCreate();
     }
 
     ///<summary>全てのデータを作成</summary>
@@ -172,5 +172,56 @@ public class s_LoadManager : MonoBehaviour
             }
         }
     }
+    private void SaveWindCreate()
+    {
+        //フォルダがあるか確認
+        if (Directory.Exists(Application.dataPath + "/StreamingAssets/SaveData"))
+        {
+            //全てのファイルの名前を取得
+            string[] subFolyder = Directory.GetDirectories(Application.dataPath + "/StreamingAssets/SaveData", "*", SearchOption.AllDirectories);
 
+            //全てのデータを生成
+            for (int i = 0; i < subFolyder.Length; i++)
+            {
+                int subNum = subFolyder[i].Length;
+                SaveWindDataCreate(Application.dataPath + "/StreamingAssets/SaveData/" + subFolyder[i][subNum - 1]);
+
+            }
+        }
+        //ターゲットを初期化
+        target = 0;
+        saveDataList[target].GetComponent<Image>().color = new Color(255f / 255f, 245f / 255f, 182f / 255f, 143f / 255);
+
+    }
+    ///<summary>ファイルを読み込みデータを生成</summary>
+    private void SaveWindDataCreate(string str)
+    {
+        //引数の名前のセーブデータのtxtを取得
+        string[] s = File.ReadAllLines(str + "/playData.txt");
+        //セーブデータのオブジェクトを生成
+        GameObject obj = Instantiate(savedData);
+        //リストに追加
+        saveDataList.Add(obj);
+        fileName.Add(str);
+
+        //上からデータ番号を設定
+        obj.transform.Find("DataText").GetComponent<s_DetaCreate>().SetNumber(saveDataList.IndexOf(obj) + 1);
+        //一行目を取得
+        string[] data = s[0].Split('^');
+        //セーブした日時を設定
+        obj.transform.Find("DataText").GetComponent<s_DetaCreate>().SetSaveDay(data[1]);
+        //二行目を取得
+        data = s[1].Split('^');
+        //プレイ時間などを設定
+        obj.transform.Find("DataText").GetComponent<s_DetaCreate>().SetPlayTime(data[1]);
+        //取得したデータをテキストに描画
+        obj.transform.Find("DataText").GetComponent<s_DetaCreate>().SetText();
+
+
+        //セーブデータに親オブジェクトを設定(親オブジェクトの外に出た場合、非表示にするため)
+        obj.transform.SetParent(GameObject.Find("Panel").transform);
+        //初期の表示位置を設定
+        obj.GetComponent<RectTransform>().position = new Vector3(550, 600 - (saveDataList.IndexOf(obj) * 220), -1);
+        obj.GetComponent<RectTransform>().localScale = new Vector3(4f, 1f, 0);
+    }
 }

@@ -65,6 +65,7 @@
     <Compile Include="Assets\script\EnemyScript\s_AttackEnemyControl.cs" />
     <Compile Include="Assets\script\EnemyScript\s_Enemy01.cs" />
     <Compile Include="Assets\script\EnemyScript\s_EnemyAttack.cs" />
+    <Compile Include="Assets\script\EnemyScript\s_EnemyList.cs" />
     <Compile Include="Assets\script\EnemyScript\s_EnemyState.cs" />
     <Compile Include="Assets\script\MagicScript\s_EffectBallControl.cs" />
     <Compile Include="Assets\script\MagicScript\s_MagicObjectControl.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\script\Save&amp;Load\s_GameData.cs" />
     <Compile Include="Assets\script\Save&amp;Load\s_LoadManager.cs" />
     <Compile Include="Assets\script\Save&amp;Load\s_SaveObjControl.cs" />
+    <Compile Include="Assets\script\Save&amp;Load\s_SaveWind.cs" />
     <Compile Include="Assets\script\Save&amp;Load\s_SelectWind.cs" />
     <Compile Include="Assets\script\Save&amp;Load\s_SelectWindManager.cs" />
     <Compile Include="Assets\script\Save&amp;Load\s_WarpWind.cs" />
@@ -121,8 +123,10 @@
     <None Include="Assets\StreamingAssets\SaveData\1\playData.txt" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
     <None Include="Assets\StreamingAssets\SaveData\1\playerMagicData.txt" />
+    <None Include="Assets\StreamingAssets\SaveData\1\EnemyList.txt" />
     <None Include="Assets\UnityChan\Voice\unity-chan_voice_list.txt" />
     <None Include="Assets\StreamingAssets\SaveData\2\playData.txt" />
+    <None Include="Assets\StreamingAssets\SaveData\8\EnemyList.txt" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
     <None Include="Assets\StreamingAssets\SaveData\2\playerData.txt" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
@@ -134,6 +138,7 @@
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
     <None Include="Assets\StreamingAssets\SaveData\1\playerData.txt" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
+    <None Include="Assets\StreamingAssets\SaveData\2\EnemyList.txt" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
     <None Include="Assets\StreamingAssets\SaveData\8\playerData.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
