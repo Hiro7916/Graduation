@@ -41,7 +41,7 @@ public class s_EnemyState : MonoBehaviour
         //        dame /=2 ;
         //    }
         //}
-        if (transform.name == "Boss")
+        if (transform.name == "Boss(Clone)")
         {
             Debug.Log(propety);
             if (propety == "水")
@@ -52,6 +52,14 @@ public class s_EnemyState : MonoBehaviour
             {
                 dame = 0;
             }
+        }
+        if (transform.name == "Enemy01(Clone)")
+        {
+            if (propety == "火")
+            {
+                dame *= 2;
+            }
+
         }
 
 

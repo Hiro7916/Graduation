@@ -31,6 +31,9 @@ public class s_Enemy01 : MonoBehaviour
     ///<summary>待機時間</summary>
     private int waitTime;
     #endregion
+    #region 攻撃
+    Vector3 attackPosition;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -174,9 +177,36 @@ public class s_Enemy01 : MonoBehaviour
         GetComponent<s_AnimationControl>().ChangeAnime(motionName[2]);
 
         Debug.Log("ATstart");
+        Vector3 posi = player.transform.position- transform.position ;
+        attackPosition = player.transform.position + posi*1.5f;
+        attackPosition.y = 0;
+        transform.LookAt(attackPosition, new Vector3(0,1,0));
     }
     ///<summary>攻撃(Action関数)</summary>
     private void Attack()
     {
+
+        if (Vector3.Distance(transform.position, attackPosition) <= 4f)
+        {
+            Debug.Log("ti");
+
+            AttackThink();
+        }
+        rig.AddForce(transform.forward * 1000);
+    }
+
+    ///<summary>移動か待機か考える</summary>
+    private void AttackThink()
+    {
+        preActionNum = MoveActions.Count + 1;
+        Debug.Log("AttackThink");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<s_PlayerStatus>().Damage(10);
+        }
     }
 }
