@@ -57,6 +57,9 @@ public class s_EnemyList : MonoBehaviour
                         GameObject obj = Instantiate(objs[f]);
                         obj.transform.position = new Vector3(float.Parse(data[1]), float.Parse(data[2]) + 3, float.Parse(data[3]));
                         obj.transform.parent=GameObject.Find("EnemyList").transform;
+                        string name = obj.name.Replace("(Clone)", "") ;
+                        obj.name = name;
+                        
                     }
                 }
                 num++;

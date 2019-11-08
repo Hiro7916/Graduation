@@ -198,7 +198,7 @@ public class s_BossMove : MonoBehaviour
         }
         else
         {
-            Vector3 velo = Vector3.Lerp(transform.position, playerPosition, 0.05f);
+            Vector3 velo = Vector3.Lerp(transform.position, playerPosition, 0.08f);
             if (Vector3.Distance(velo, transform.position) < 0.2f)
                 rushEnd = true;
 
@@ -210,7 +210,7 @@ public class s_BossMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        Debug.Log(other.name);
         if (other.tag == "stage")
         {
             rushEnd = true;
@@ -218,9 +218,14 @@ public class s_BossMove : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+       Debug.Log( collision.gameObject.name);
         if (collision.gameObject.tag == "stage")
         {
             rushEnd = true;
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<s_PlayerStatus>().Damage(10);
         }
     }
     ///<summary>ボスが行動できるかの設定</summary>
@@ -230,7 +235,7 @@ public class s_BossMove : MonoBehaviour
     }
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("p");
+
     }
     private void OnParticleTrigger()
     {

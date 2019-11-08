@@ -71,6 +71,7 @@
     <Compile Include="Assets\script\EnemyScript\s_EnemyList.cs" />
     <Compile Include="Assets\script\EnemyScript\s_EnemyMagic.cs" />
     <Compile Include="Assets\script\EnemyScript\s_EnemyState.cs" />
+    <Compile Include="Assets\script\magic.cs" />
     <Compile Include="Assets\script\MagicScript\s_EffectBallControl.cs" />
     <Compile Include="Assets\script\MagicScript\s_EnemyFlame.cs" />
     <Compile Include="Assets\script\MagicScript\s_MagicObjectControl.cs" />

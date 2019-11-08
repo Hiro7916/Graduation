@@ -23,7 +23,6 @@ public class s_EnemyFlame : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log(other.name);;
         if (other.tag == "Player")
         {
             other.GetComponent<s_PlayerStatus>().Damage(2);
