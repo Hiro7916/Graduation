@@ -21,7 +21,8 @@ public class magic : MonoBehaviour
     {
         if (Chack(pro))
         {
-            pars[num].position = new Vector3(0, 1000, 0);
+            pars[num].size = 0;
+           // pars[num].position = new Vector3(0, 1000, 0);
             ps[0].SetParticles(pars);
         }
     }
