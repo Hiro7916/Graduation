@@ -23,7 +23,7 @@ public class s_BossSwitch : MonoBehaviour
         {
             if (GameObject.Find("Boss") != null)
             {
-                GameObject.Find("Boss").GetComponent<s_BossMove>().SetMoveOnCheck(true);
+               GameObject.Find("Boss").GetComponent<s_BossMove>().SetMoveOnCheck(true);
             }
         }
     }

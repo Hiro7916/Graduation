@@ -8,11 +8,14 @@ using System;
 ///<summary>タイトルでゲームシーンへ切り替える</summary>
 public class s_DataLoader : MonoBehaviour
 {
+    ///<summary>選択画面</summary>
+    public GameObject slectWind;
     // Start is called before the first frame update
     void Start()
     {
         
     }
+
 
     // Update is called once per frame
     void Update()
@@ -24,7 +27,7 @@ public class s_DataLoader : MonoBehaviour
             {
                 //選択したデータを記憶する
                 s_GameData.SetFileName(GetComponent<s_LoadManager>().GetFileName());
-
+                Debug.Log(s_GameData.GetLoodFileName());
                 //if(s_GameData.GetLoodFileName()=="NewGame")
                 //{
                 //    CreateNewGame();
@@ -36,17 +39,13 @@ public class s_DataLoader : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            if (transform.parent.parent != null)
-            {
-                transform.parent.parent.transform.Find("o_SelectCanvas").gameObject.SetActive(true);
-                transform.parent.gameObject.SetActive(false);
-                foreach (Transform transform in transform.parent.parent.transform.Find("o_SelectCanvas").transform.Find("o_ScrollView").transform)
+                GameObject.Find("LoadWind").SetActive(false); ;
+                foreach (Transform transform in GameObject.Find("Panel").transform)
                 {
                     var go = transform.gameObject;
                     Destroy(go);
                 }
-                transform.parent.parent.transform.Find("o_SelectCanvas").gameObject.transform.Find("t_SelectText").gameObject.SetActive(true);
-            }
+                slectWind.SetActive(true); ;
         }
     }
 

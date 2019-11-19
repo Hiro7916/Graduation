@@ -11,10 +11,6 @@ public class s_PlayerSaveControl : MonoBehaviour
   　private bool hit;
     ///<summary>オブジェクトの一時保存</summary>
     private GameObject hitObj;
-
-
-
-
     public GameObject looder;
 
     bool loadOn;
@@ -42,14 +38,14 @@ public class s_PlayerSaveControl : MonoBehaviour
 
 
 
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            s_PoseControl.ChangeWindPose(false);
-        }
+        //if(Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    s_PoseControl.ChangeWindPose(false);
+        //}
 
-        Save();
-        Load();
-        Warp();
+        //Save();
+        //Load();
+        //Warp();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -82,7 +78,7 @@ public class s_PlayerSaveControl : MonoBehaviour
         if (hit && Input.GetKeyDown(KeyCode.Alpha0))
         {
             loadOn = true;
-            looder.SetActive(true);
+            GameObject.Find("o_SaveLoad_Wind").GetComponent<s_SelectWindManager>().Open();
             s_PoseControl.ChangeWindPose(true);
 
         }

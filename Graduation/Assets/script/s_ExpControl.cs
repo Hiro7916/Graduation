@@ -36,6 +36,7 @@ public class s_ExpControl : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<s_MagicAction>().AddExp(10);
+            other.GetComponent<s_PlayerStatus>().MaxHpUp(2);
             Destroy(this.gameObject);
         }
     }
