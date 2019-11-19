@@ -44,12 +44,18 @@ public class s_ParticlControl : MonoBehaviour
                     int parNum = 0;
                     foreach (var p in myp)
                     {
+                        if (p.size == 0)
+                            continue;
+
                         dead = false;
                         yp = new ParticleSystem.Particle[ob.GetComponent<ParticleSystem>().particleCount];
                         ob.GetComponent<ParticleSystem>().GetParticles(yp);
                         int yNum = 0;
                         foreach (var y in yp)
                         {
+                            if (y.size == 0)
+                                continue;
+
                             Check(p.position, y.position, p.size, y.size, o, myp, parNum, ob, yp, yNum);
                             yNum++;
 

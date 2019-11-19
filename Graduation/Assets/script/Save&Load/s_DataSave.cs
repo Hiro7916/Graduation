@@ -135,6 +135,11 @@ public class s_DataSave : MonoBehaviour
     private void CreateEnemy(int num)
     {
         StreamWriter sw = File.CreateText(Application.dataPath + "/StreamingAssets/SaveData/" + num + "/EnemyList.txt");
+        foreach (Transform transform in GameObject.Find("EnemyList").transform)
+        {
+           sw.WriteLine( transform.name + "^" + transform.position.x + "^" + transform.position.y + "^" + transform.position.z);
+            num++;
+        }
         sw.Close();
     }
     public void EnemySave()
@@ -148,8 +153,10 @@ public class s_DataSave : MonoBehaviour
             playdeta[num] = transform.name + "^" + transform.position.x + "^" + transform.position.y + "^" + transform.position.z;
             num++;
         }
-
+        Debug.Log(num);
         File.WriteAllLines(filiName + "/EnemyList.txt", playdeta);
+
+
     }
 
 }
