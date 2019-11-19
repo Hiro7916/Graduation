@@ -57,6 +57,11 @@ public class s_PlayerStatus : MonoBehaviour
         hp += num;
         GameObject.Find("HpText").GetComponent<s_PlayerHpUI>().SetText(hp.ToString());
     }
+    ///<summary>最大Hpを増加</summary>
+    public void MaxHpUp(int num)
+    {
+        maxHp += num;
+    }
     ///<summary>ダメージを受ける</summary>
     public void Damage(int num)
     {

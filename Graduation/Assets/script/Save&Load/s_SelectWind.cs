@@ -14,12 +14,12 @@ public class s_SelectWind : MonoBehaviour
     public GameObject wind;
     ///<summary>セーブウィンド</summary>
     public GameObject saveWind;
+    public GameObject saveText;
     ///<summary>ロードウィンド</summary>
     public GameObject loadWind;
     ///<summary>ワープ選択画面</summary>
     public GameObject warpWind;
-    ///<summary>自分のオブジェクト</summary>
-    public GameObject myObj;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,25 +38,26 @@ public class s_SelectWind : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Return))
         {
+            Debug.Log(selectNumber);
             switch (selectNumber)
             {
                 case 0:
                     saveWind.SetActive(true);
-                    saveWind.transform.Find("t_SaveText").GetComponent<s_LoadManager>().ListCreate("Save");
-                    gameObject.SetActive(false);
+                    saveText.GetComponent<s_LoadManager>().ListCreate();
+                    wind.SetActive(false);
                     break;
                 case 1:
+                    wind.SetActive(false);
                     loadWind.SetActive(true);
-                    loadWind.transform.Find("o_Loader").GetComponent<s_LoadManager>().ListCreate("Main");
-                    gameObject.SetActive(false);
+                    GameObject.Find("t_LoadText").GetComponent<s_LoadManager>().ListCreate();
                     break;
                 case 2:
+                    wind.SetActive(false);
                     warpWind.SetActive(true);
-                    warpWind.transform.Find("t_WarpText").GetComponent<s_WarpWind>().SetList();
-                    gameObject.SetActive(false);
+                    GameObject.Find("t_WarpText").GetComponent<s_WarpWind>().SetList();
                     break;
                 case 3:
-                    wind.SetActive(false);
+                    GameObject.Find("o_SaveLoad_Wind").GetComponent<s_SelectWindManager>().End();
                     s_PoseControl.ChangeWindPose(false);
                     break;
             }

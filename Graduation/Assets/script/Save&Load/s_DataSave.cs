@@ -36,6 +36,7 @@ public class s_DataSave : MonoBehaviour
             if (GetComponent<s_LoadManager>().GetFileName() != "NewGame")
             {
                 Debug.Log(GetComponent<s_LoadManager>().GetFileName());
+                s_GameData.SetFileName(GetComponent<s_LoadManager>().GetFileName());
                 Save();
             }
             else
@@ -43,6 +44,7 @@ public class s_DataSave : MonoBehaviour
                 CreateNewGame();
                 Debug.Log(GetComponent<s_LoadManager>().GetFileName());
                 Save();
+                Debug.Log("save");
             }
         }
         //BackSpaceが押された場合セーブウィンドを閉じる
@@ -50,12 +52,11 @@ public class s_DataSave : MonoBehaviour
         {
             selectWind.SetActive(true);
             myWind.SetActive(false);
-            foreach (Transform transform in selectWind.transform.Find("o_ScrollView").transform)
+            foreach (Transform transform in GameObject.Find("Panel").transform)
             {
                 var go = transform.gameObject;
                 Destroy(go);
-            }
-            selectWind.gameObject.transform.Find("t_SelectText").gameObject.SetActive(true);         
+            }     
         }
 
 
@@ -63,40 +64,50 @@ public class s_DataSave : MonoBehaviour
     private void Save()
     {
         GameObject player = GameObject.Find("o_player");
-        tx.text = GetComponent<s_LoadManager>().GetFileName();
-        string[] playdeta = File.ReadAllLines(GetComponent<s_LoadManager>().GetFileName() + "/playerData.txt");
-        Debug.Log("on");
+        //  tx.text = GetComponent<s_LoadManager>().GetFileName();
+        Debug.Log(GetComponent<s_LoadManager>().GetFileName());
+        string[] playdeta = File.ReadAllLines(s_GameData.GetLoodFileName() + "/playerData.txt");
+        
         playdeta[0] = "position^" + player.transform.position.x + "^" + player.transform.position.y+10 + "^" + player.transform.position.z;
-        File.WriteAllLines(GetComponent<s_LoadManager>().GetFileName() + "/playerData.txt", playdeta);
-        playdeta = File.ReadAllLines(GetComponent<s_LoadManager>().GetFileName() + "/playData.txt");
+        File.WriteAllLines(s_GameData.GetLoodFileName() + "/playerData.txt", playdeta);
+        playdeta = File.ReadAllLines(s_GameData.GetLoodFileName() + "/playData.txt");
         playdeta[0] = "saveday^" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Hour + "/" + DateTime.Now.Minute + "/" + DateTime.Now.Second;
+        Debug.Log(playdeta[0]);
         playdeta[1] = "playTime^"+player.GetComponent<s_PlayerStatus>().GetPlayHour()+':' + player.GetComponent<s_PlayerStatus>().GetPlayMinute() + ':' + player.GetComponent<s_PlayerStatus>().GetPlaySecond();
-        File.WriteAllLines(GetComponent<s_LoadManager>().GetFileName() + "/playData.txt", playdeta);
+        File.WriteAllLines(s_GameData.GetLoodFileName() + "/playData.txt", playdeta);
+
+        //エネミーデータをセーブ
+        EnemySave();
 
     }
     ///<summary>NewGame時にデータフォルダを生成</summary>
     private void CreateNewGame()
     {
         int directoryNum = 1;
-
+        Debug.Log("pre");
         //フォルダがあるか確認
-        if (Directory.Exists(Application.dataPath + " / StreamingAssets / SaveData"))
+        if (Directory.Exists(Application.dataPath + "/StreamingAssets/SaveData"))
         {
-
             //全てのファイルの名前を取得
             string[] subFolyder = Directory.GetDirectories(Application.dataPath + "/StreamingAssets/SaveData", "*", SearchOption.AllDirectories);
 
+            for (int g = 0; g < subFolyder.Length; g++)
+            {
+                Debug.Log(subFolyder[g]);
+            }
             for (int i = 0; i < 100; i++)
             {
-                if (!(0 <= Array.IndexOf(subFolyder, Application.dataPath + "/StreamingAssets/SaveData/" + directoryNum)))
+                if (!(0 <= Array.IndexOf(subFolyder, Application.dataPath + "/StreamingAssets/SaveData\\" + directoryNum)))
                 {
+                    Debug.Log(directoryNum);
                     Directory.CreateDirectory(Application.dataPath + "/StreamingAssets/SaveData/" + directoryNum.ToString());
                     s_GameData.SetFileName(Application.dataPath + "/StreamingAssets/SaveData/" + directoryNum.ToString());
                     CreatePlayData(directoryNum);
                     CreatePlayerData(directoryNum);
+                    CreateEnemy(directoryNum);
 
                     //選択したデータを記憶する
-                    s_GameData.SetFileName(Application.dataPath + "/StreamingAssets/SaveData/" + directoryNum);
+                   // s_GameData.SetFileName(Application.dataPath + "/StreamingAssets/SaveData/" + directoryNum);
 
                     return;
                 }
@@ -121,4 +132,31 @@ public class s_DataSave : MonoBehaviour
         sw.WriteLine("position^" + 0 + "^" + 5 + "^" + 0);
         sw.Close();
     }
+    private void CreateEnemy(int num)
+    {
+        StreamWriter sw = File.CreateText(Application.dataPath + "/StreamingAssets/SaveData/" + num + "/EnemyList.txt");
+        foreach (Transform transform in GameObject.Find("EnemyList").transform)
+        {
+           sw.WriteLine( transform.name + "^" + transform.position.x + "^" + transform.position.y + "^" + transform.position.z);
+            num++;
+        }
+        sw.Close();
+    }
+    public void EnemySave()
+    {
+        string filiName = s_GameData.GetLoodFileName();
+        string[] playdeta=new string[100];
+
+        int num = 0;
+        foreach (Transform transform in GameObject.Find("EnemyList").transform)
+        {
+            playdeta[num] = transform.name + "^" + transform.position.x + "^" + transform.position.y + "^" + transform.position.z;
+            num++;
+        }
+        Debug.Log(num);
+        File.WriteAllLines(filiName + "/EnemyList.txt", playdeta);
+
+
+    }
+
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1786376949725478489}
   - component: {fileID: 1068250435}
   - component: {fileID: 6125774476346721965}
+  - component: {fileID: 8206637779078599225}
   m_Layer: 0
   m_Name: o_Thunder1
   m_TagString: Magic
@@ -108,7 +109,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -171,7 +172,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 21.921406
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -603,7 +604,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 100
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -663,7 +664,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 10
+    angle: 36.04473
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -749,7 +750,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 2.0723457
       mode: 0
       spread: 0
       speed:
@@ -806,7 +807,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
+      value: 0
       mode: 0
       spread: 0
       speed:
@@ -2575,7 +2576,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 20
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3689,7 +3690,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     collisionShape0: {fileID: 0}
     collisionShape1: {fileID: 0}
     collisionShape2: {fileID: 0}
@@ -4738,3 +4739,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propertyName: "\u96F7"
+--- !u!114 &8206637779078599225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690210333243327340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57341eeb6a21b5f4db8d1d06548add1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  property: "\u96F7"

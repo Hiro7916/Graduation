@@ -10,6 +10,8 @@ public class s_SelectWindManager : MonoBehaviour
     public GameObject saveWind;
     ///<summary>ロードウィンド</summary>
     public GameObject loadWind;
+    ///<summary>ワープウィンド</summary>
+    public GameObject warpWind;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,15 +25,25 @@ public class s_SelectWindManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        selectWind.SetActive(true);
-        saveWind.SetActive(false);
-        loadWind.SetActive(false);
+
     }
     private void OnDisable()
     {
+
+    }
+    ///<summary>ウィンドを開く</summary>
+    public void Open()
+    {
         selectWind.SetActive(true);
-        selectWind.transform.Find("t_SelectText").gameObject.SetActive(true);
         saveWind.SetActive(false);
         loadWind.SetActive(false);
+        warpWind.SetActive(false);
+    }
+    public void End()
+    {
+        selectWind.SetActive(false);
+        saveWind.SetActive(false);
+        loadWind.SetActive(false);
+        warpWind.SetActive(false);
     }
 }

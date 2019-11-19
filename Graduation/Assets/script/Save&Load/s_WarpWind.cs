@@ -7,8 +7,10 @@ public class s_WarpWind : MonoBehaviour
 {
     ///<summary>セレクトウィンド</summary>
     public GameObject selsectWind;
+    ///<summary>自分のテキスト</summary>
+    public Text myText;
     ///<summary>自分のウィンド</summary>
-    public Text warpWind;
+    public GameObject myWind;
     ///<summary>表示するワープポイントの名前</summary>
     private List<string> names;
     ///<summary>選択番号</summary>
@@ -27,6 +29,7 @@ public class s_WarpWind : MonoBehaviour
     ///<summary>データを入手してテキストをセット</summary>
     public void SetList()
     {
+        myText.text = "";
         names = GameObject.Find("o_player").GetComponent<s_PlayerSavePointMemory>().GetListNames();
         target = 0;
         string s = "";
@@ -39,7 +42,7 @@ public class s_WarpWind : MonoBehaviour
         str[target]+="←";
         for(int i=0;i<str.Length;i++)
         {
-            warpWind.text += str[i]+'\n';
+            myText.text += str[i]+'\n';
         }
      
     }
@@ -52,10 +55,8 @@ public class s_WarpWind : MonoBehaviour
             {
                 string s = "";
           
-                warpWind.text = "";
+                myText.text = "";
 
-
-                Debug.Log("aa");
                 for (int i = 0; i < names.Count; i++)
                 {
                     s += names[i] + "\n";
@@ -65,7 +66,7 @@ public class s_WarpWind : MonoBehaviour
                 str[target] += "←";
                 for (int i = 0; i < str.Length; i++)
                 {
-                    warpWind.text += str[i] + '\n';
+                    myText.text += str[i] + '\n';
                 }
             }
         }
@@ -76,7 +77,7 @@ public class s_WarpWind : MonoBehaviour
             {
                 string s = "";
             
-                warpWind.text = "";
+                myText.text = "";
 
                 for (int i = 0; i < names.Count; i++)
                 {
@@ -87,7 +88,7 @@ public class s_WarpWind : MonoBehaviour
                 str[target] += "←";
                 for (int i = 0; i < str.Length; i++)
                 {
-                    warpWind.text += str[i] + '\n';
+                    myText.text += str[i] + '\n';
                 }
             }
         }
@@ -98,13 +99,22 @@ public class s_WarpWind : MonoBehaviour
             Vector3 posi = player.GetComponent<s_PlayerSavePointMemory>().GetPosition(names[target]);
             posi.y += 5;
             player.transform.position = posi;
-           
-            selsectWind.SetActive(false);
-            transform.parent.gameObject.SetActive(false);
+
+            GameObject.Find("o_SaveLoad_Wind").GetComponent<s_SelectWindManager>().End();
             s_PoseControl.ChangeWindPose(false);
-            warpWind.text = "";
+            myText.text = "";
         }
-        
+        //BackSpaceが押された場合セーブウィンドを閉じる
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            selsectWind.SetActive(true);
+            myWind.SetActive(false);
+            foreach (Transform transform in GameObject.Find("Panel").transform)
+            {
+                var go = transform.gameObject;
+                Destroy(go);
+            }
+        }
     }
 
 }
