@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/KasuyaPrefab.unity
+- path: Assets/Scenes/MapPrefub_kasuya.unity
   isLoaded: 1
   isActive: 1
