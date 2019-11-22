@@ -51,8 +51,8 @@ public class s_PlayerMove : MonoBehaviour
 
         Vector3 cameraForward = Vector3.Scale(playerCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
         Vector3 moveForward = cameraForward * velocity.y + playerCamera.transform.right * velocity.x;
-        moveForward *= 50;
-        rig.AddForce(moveForward);
+        moveForward *= 0.3f;
+        transform.position+=moveForward;
 
 
     }
@@ -104,7 +104,7 @@ public class s_PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             Vector3 vel = Vector3.zero;
-            vel.y = 10;
+            vel.y = 5;
             rig.velocity += vel;
         }
     }

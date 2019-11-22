@@ -115,14 +115,14 @@ public class s_Enemy01 : MonoBehaviour
     private void MoveStart()
     {
         GetComponent<s_AnimationControl>().ChangeAnime(motionName[1]);
-        moveTimer = 60*Random.Range(3,10);
+        moveTimer = 60*Random.Range(2,5);
         transform.rotation = Quaternion.AngleAxis(Random.Range(0,360),new Vector3(0,1,0));
     }
     ///<summary>移動</summary>
     private void Move()
     {
-        rig.AddForce(transform.forward*40);
-
+        //rig.AddForce(transform.forward*40);
+        transform.position+=transform.forward*0.1f;
         moveTimer--;
         if (moveTimer <= 0)
         {
@@ -162,7 +162,7 @@ public class s_Enemy01 : MonoBehaviour
 
     private void PlayerDisCheck()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) <= 50)
+        if (Vector3.Distance(transform.position, player.transform.position) <= 25)
         {
             Random rnd = new Random();
             actionNum = Random.Range(0, 1);
@@ -186,13 +186,14 @@ public class s_Enemy01 : MonoBehaviour
     private void Attack()
     {
 
-        if (Vector3.Distance(transform.position, attackPosition) <= 4f)
+        if (Vector3.Distance(transform.position, attackPosition) <= 4f||Vector3.Distance(transform.position, player.transform.position)>30)
         {
             Debug.Log("ti");
 
             AttackThink();
         }
-        rig.AddForce(transform.forward * 1000);
+        //rig.AddForce(transform.forward * 20);
+        transform.position+=transform.forward*0.4f;
     }
 
     ///<summary>移動か待機か考える</summary>

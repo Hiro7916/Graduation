@@ -8,10 +8,13 @@ public class s_DoorControl : MonoBehaviour
     public int hp=100;
     ///<summary>ダメージを与えられるLv</summary>
     public int workLv = 2;
-
+    ///<summary>HPが０になったか</summary>
+    private bool dead;
+    private float rota;
     // Start is called before the first frame update
     void Start()
     {
+        dead=false;
         
     }
 
@@ -19,6 +22,8 @@ public class s_DoorControl : MonoBehaviour
     void Update()
     {
         BreakCheck();
+        if (dead)
+            AnimeDead();
     }
 
     private void OnParticleCollision(GameObject other)
@@ -38,8 +43,21 @@ public class s_DoorControl : MonoBehaviour
     {
         if (hp <= 0)
         {
-            Destroy(this.gameObject);
+            dead=true;
+         
         }
     }
+    private void AnimeDead()
+    { 
+        rota += 2;
 
+        if(rota<=90)
+        { 
+            transform.RotateAround(transform.position+new Vector3(0,-0f,0),transform.forward,2);
+        }
+        else
+        {
+             Destroy(this.gameObject);
+        }
+    }
 }
