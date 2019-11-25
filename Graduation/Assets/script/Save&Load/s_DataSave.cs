@@ -43,7 +43,7 @@ public class s_DataSave : MonoBehaviour
             {
                 CreateNewGame();
                 Debug.Log(GetComponent<s_LoadManager>().GetFileName());
-                Save();
+                //Save();
                 Debug.Log("save");
             }
         }
@@ -72,10 +72,20 @@ public class s_DataSave : MonoBehaviour
         File.WriteAllLines(s_GameData.GetLoodFileName() + "/playerData.txt", playdeta);
         playdeta = File.ReadAllLines(s_GameData.GetLoodFileName() + "/playData.txt");
         playdeta[0] = "saveday^" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Hour + "/" + DateTime.Now.Minute + "/" + DateTime.Now.Second;
-        Debug.Log(playdeta[0]);
         playdeta[1] = "playTime^"+player.GetComponent<s_PlayerStatus>().GetPlayHour()+':' + player.GetComponent<s_PlayerStatus>().GetPlayMinute() + ':' + player.GetComponent<s_PlayerStatus>().GetPlaySecond();
         File.WriteAllLines(s_GameData.GetLoodFileName() + "/playData.txt", playdeta);
 
+
+        playdeta = new string[player.GetComponent<s_PlayerHaveMagic>().GetHaveMagicCount()];
+        for (int i = 0; i < player.GetComponent<s_PlayerHaveMagic>().GetHaveMagicCount(); i++)
+        {
+
+            string str = player.GetComponent<s_PlayerHaveMagic>().GetMagic(player.GetComponent<s_PlayerHaveMagic>().GetMagicNames()[i]).name;
+            str = str.Remove(0, 2);
+            playdeta[i]=(str+"^"+player.GetComponent<s_PlayerHaveMagic>().GetMagic(player.GetComponent<s_PlayerHaveMagic>().GetMagicNames()[i]).GetComponent<s_MagicObjectControl>().GetLv().ToString()+"^"+
+                        player.GetComponent<s_PlayerHaveMagic>().GetMagic(player.GetComponent<s_PlayerHaveMagic>().GetMagicNames()[i]).GetComponent<s_MagicObjectControl>().GetExp().ToString());
+        }
+        File.WriteAllLines(s_GameData.GetLoodFileName() + "/playerMagicData.txt", playdeta);
         //エネミーデータをセーブ
         EnemySave();
 
@@ -105,7 +115,7 @@ public class s_DataSave : MonoBehaviour
                     CreatePlayData(directoryNum);
                     CreatePlayerData(directoryNum);
                     CreateEnemy(directoryNum);
-
+                    CreateMagicData(directoryNum);
                     //選択したデータを記憶する
                    // s_GameData.SetFileName(Application.dataPath + "/StreamingAssets/SaveData/" + directoryNum);
 
@@ -117,45 +127,62 @@ public class s_DataSave : MonoBehaviour
         }
     }
 
+    private void CreateMagicData(int num)   
+    {
+        GameObject player = GameObject.Find("o_player");
+        StreamWriter sw = File.CreateText(Application.dataPath + "/StreamingAssets/SaveData/" + num + "/playerMagicData.txt");
+        for (int i = 0; i < player.GetComponent<s_PlayerHaveMagic>().GetHaveMagicCount(); i++)
+        {
+
+            string str = player.GetComponent<s_PlayerHaveMagic>().GetMagic(player.GetComponent<s_PlayerHaveMagic>().GetMagicNames()[i]).name;
+            str = str.Remove(0, 2);
+            sw.WriteLine(str+"^"+player.GetComponent<s_PlayerHaveMagic>().GetMagic(player.GetComponent<s_PlayerHaveMagic>().GetMagicNames()[i]).GetComponent<s_MagicObjectControl>().GetLv().ToString()+"^"+
+                        player.GetComponent<s_PlayerHaveMagic>().GetMagic(player.GetComponent<s_PlayerHaveMagic>().GetMagicNames()[i]).GetComponent<s_MagicObjectControl>().GetExp().ToString());
+        }
+        sw.Close();
+    }
+    
+
+        
     ///<summary>playDataを生成</summary>
     private void CreatePlayData(int num)
     {
+        GameObject player = GameObject.Find("o_player");
         StreamWriter sw = File.CreateText(Application.dataPath + "/StreamingAssets/SaveData/" + num + "/playData.txt");
         sw.WriteLine("saveday^" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Hour + "/" + DateTime.Now.Minute + "/" + DateTime.Now.Second);
-        sw.WriteLine("playTime^00:00:00");
+        sw.WriteLine("playTime^"+player.GetComponent<s_PlayerStatus>().GetPlayHour()+':' + player.GetComponent<s_PlayerStatus>().GetPlayMinute() + ':' + player.GetComponent<s_PlayerStatus>().GetPlaySecond());
         sw.Close();
     }
     ///<summary>playerDataを生成</summary>
     private void CreatePlayerData(int num)
-    {
+    {       
+        GameObject player = GameObject.Find("o_player");
         StreamWriter sw = File.CreateText(Application.dataPath + "/StreamingAssets/SaveData/" + num + "/playerData.txt");
-        sw.WriteLine("position^" + 0 + "^" + 5 + "^" + 0);
+        sw.WriteLine("position^" + player.transform.position.x + "^" + player.transform.position.y+10 + "^" + player.transform.position.z);
         sw.Close();
     }
     private void CreateEnemy(int num)
     {
         StreamWriter sw = File.CreateText(Application.dataPath + "/StreamingAssets/SaveData/" + num + "/EnemyList.txt");
-        foreach (Transform transform in GameObject.Find("EnemyList").transform)
+        foreach (Transform tra in GameObject.Find("EnemyList").transform)
         {
-           sw.WriteLine( transform.name + "^" + transform.position.x + "^" + transform.position.y + "^" + transform.position.z);
-            num++;
+           sw.WriteLine( tra.name + "^" + tra.position.x + "^" + tra.position.y + "^" + tra.position.z);
+           num++;
         }
         sw.Close();
     }
     public void EnemySave()
     {
         string filiName = s_GameData.GetLoodFileName();
-        string[] playdeta=new string[100];
-
         int num = 0;
-        foreach (Transform transform in GameObject.Find("EnemyList").transform)
+        File.Delete(filiName + "/EnemyList.txt");
+        StreamWriter sw = File.CreateText(filiName+ "/EnemyList.txt");
+        foreach (Transform tra in GameObject.Find("EnemyList").transform)
         {
-            playdeta[num] = transform.name + "^" + transform.position.x + "^" + transform.position.y + "^" + transform.position.z;
-            num++;
+           sw.WriteLine( tra.name + "^" + tra.position.x + "^" + tra.position.y + "^" + tra.position.z);
+           num++;
         }
-        Debug.Log(num);
-        File.WriteAllLines(filiName + "/EnemyList.txt", playdeta);
-
+        sw.Close();
 
     }
 

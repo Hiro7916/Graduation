@@ -51,7 +51,7 @@ public class s_PlayerMove : MonoBehaviour
 
         Vector3 cameraForward = Vector3.Scale(playerCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
         Vector3 moveForward = cameraForward * velocity.y + playerCamera.transform.right * velocity.x;
-        moveForward *= 0.3f;
+        moveForward *= 0.1f;
         transform.position+=moveForward;
 
 

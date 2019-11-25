@@ -27,14 +27,15 @@ public class s_Property : MonoBehaviour
     {
         if (propertyName == "水")
         {
-            if (opp == "雷")
+            if (opp == "氷")
                 return 1;
         }
-        if (propertyName == "雷")
+        if (propertyName == "炎")
         {
             if (opp == "水")
-                return 2;
+                return 1;
         }
+
         return 0;
     }
 }

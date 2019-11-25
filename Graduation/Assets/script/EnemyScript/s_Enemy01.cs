@@ -193,7 +193,7 @@ public class s_Enemy01 : MonoBehaviour
             AttackThink();
         }
         //rig.AddForce(transform.forward * 20);
-        transform.position+=transform.forward*0.4f;
+        transform.position+=transform.forward*0.15f;
     }
 
     ///<summary>移動か待機か考える</summary>
@@ -206,8 +206,11 @@ public class s_Enemy01 : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
+
         {
-            collision.gameObject.GetComponent<s_PlayerStatus>().Damage(10);
+            if (!collision.gameObject.GetComponent<s_PlayerGuard>().GuardCheck(transform.position, false))
+                collision.gameObject.GetComponent<s_PlayerStatus>().Damage(10);
+            
         }
     }
 }

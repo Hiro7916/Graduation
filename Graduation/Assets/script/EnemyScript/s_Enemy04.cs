@@ -194,7 +194,7 @@ public class s_Enemy04 : MonoBehaviour
 
             AttackThink();
         }
-        transform.position+=transform.forward*0.3f;
+        transform.position+=transform.forward*0.15f;
     }
 
     ///<summary>移動か待機か考える</summary>
@@ -209,7 +209,8 @@ public class s_Enemy04 : MonoBehaviour
         Debug.Log(collision.transform.name);
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<s_PlayerStatus>().Damage(10);
+            if (!collision.gameObject.GetComponent<s_PlayerGuard>().GuardCheck(transform.position,false))
+                collision.gameObject.GetComponent<s_PlayerStatus>().Damage(10);
         }
     }
 }

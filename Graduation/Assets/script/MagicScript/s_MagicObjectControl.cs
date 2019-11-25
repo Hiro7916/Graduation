@@ -18,10 +18,10 @@ public class s_MagicObjectControl: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var mg in magicList)
-        {
-            mg.GetComponent<s_ParticleControl>().SetLv(lv);
-        }
+        //foreach (var mg in magicList)
+        //{
+        //    mg.GetComponent<s_ParticleControl>().SetLv(lv);
+        //}
     }
 
     // Update is called once per frame
@@ -48,6 +48,12 @@ public class s_MagicObjectControl: MonoBehaviour
     public void SetExp(int num)
     {
         exp = num;
+    }
+
+    ///<summary>現在のExpを取得</summary>
+    public int GetExp()
+    {
+        return exp; 
     }
     ///<summary>経験値を取得</summary>
     public void AddExp(int num)
