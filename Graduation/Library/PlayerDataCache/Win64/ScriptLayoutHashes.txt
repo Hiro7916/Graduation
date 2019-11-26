@@ -1,10 +1,11 @@
 Win64
 PlayerPath?
-C:/Users/usaha/Desktop/testUni/Graduation.exe
+C:/Users/usaha/Desktop/unityォルダー (7)/Graduation.exe
 SceneListBegin?
 Assets/Scenes/TitleH.unity
 Assets/Scenes/LoadSceneH.unity
 Assets/Scenes/Main.unity
+Assets/Scenes/ClearH.unity
 SceneListEnd?
 57ad0878f1872a53598a0937768729e6 Assembly-CSharp.dll:.s_PlayerHpUI
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.s_PlayerSavePointMemory
@@ -149,6 +150,7 @@ ea930b4ff60ca57135e37d0378470ebe Assembly-CSharp.dll:.s_DamageUiControl
 4d6e960e3e9b5a547f0b70f0c8662275 Assembly-CSharp.dll:.s_PlayerCameraControl
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.s_BossSwitch
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.s_ClearManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.s_AnimationControl
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.s_Enemy04
 4ce15e99c635d2567873d27549d1f16f Assembly-CSharp.dll:.s_DetaCreate
@@ -206,6 +208,7 @@ d8fa56c444095472df2811298594dbb3 Assembly-CSharp.dll:UnityChan.FaceUpdate
 c5ddde88ada49e07ca0fcb0ade65b9f9 Assembly-CSharp.dll:.s_WarpWind
 d0e5139fb2593ffc620d585df8fa2ae9 Assembly-CSharp.dll:UnityChan.SpringBone
 06c88778eae5d73977708a880634cd1f Assembly-CSharp.dll:UnityChan.RandomWind
+5d064456c40f7c34690dc0c9d079accc Assembly-CSharp.dll:.AA
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 9a60482210b996d1e7db7dd1adf1c554 Assembly-CSharp.dll:UnityChan.UnityChanControlScriptWithRgidBody
 105d20e5a50d32aa1c579a24c52a7177 Assembly-CSharp.dll:.s_DataSave

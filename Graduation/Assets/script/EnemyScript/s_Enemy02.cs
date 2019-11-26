@@ -126,7 +126,7 @@ public class s_Enemy02 : MonoBehaviour
     ///<summary>移動</summary>
     private void Move()
     {
-        rig.AddForce(transform.forward * 40);
+        transform.position+=transform.forward*0.1f;
 
         moveTimer--;
         if (moveTimer <= 0)
@@ -167,7 +167,7 @@ public class s_Enemy02 : MonoBehaviour
 
     private void PlayerDisCheck()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) <= 50)
+        if (Vector3.Distance(transform.position, player.transform.position) <= 20)
         {
             Random rnd = new Random();
             actionNum = Random.Range(0, 1);
@@ -194,6 +194,6 @@ public class s_Enemy02 : MonoBehaviour
     {
         transform.LookAt(player.transform);
         if(Vector3.Distance(player.transform.position,transform.position)>=10)
-        rig.AddForce(transform.forward * 200);
+            transform.position+=transform.forward*0.1f;
     }
 }

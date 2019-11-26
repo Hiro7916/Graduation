@@ -29,6 +29,7 @@ public class s_MagicAction : MonoBehaviour
         magicLvUI.GetComponent<s_MagicLvControl>().ChengeText(lv.ToString());
     }
 
+
     // Update is called once per frame
     void Update()
     {

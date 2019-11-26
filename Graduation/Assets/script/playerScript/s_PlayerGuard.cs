@@ -158,16 +158,18 @@ public class s_PlayerGuard : MonoBehaviour
     }
     ///<summary>ガード出来ているか(魔法攻撃ならtrue)</summary>
     public bool GuardCheck(Vector3 vec,bool magic)
-    {
+    { 
         //ガードしていなければ
         if (!guardOn)
             return false;
         //相手の攻撃が魔法ならガード不可
         if (magic)
             return false;
+
         Vector3 targetDir = vec - transform.position;
         float angle = Vector3.Angle(targetDir, transform.forward);
-        
+   
+            Debug.Log("Galrdgack"+angle);
         if (angle <= guardAngleRange)
             return true;
 

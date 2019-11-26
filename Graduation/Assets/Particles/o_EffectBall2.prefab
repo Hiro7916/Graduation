@@ -4826,7 +4826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a960789875b214880844a060b5c0f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propertyName: "\u6C34"
+  propertyName: "\u6C37"
 --- !u!1 &6553245661028476401
 GameObject:
   m_ObjectHideFlags: 0
@@ -9564,4 +9564,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a960789875b214880844a060b5c0f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propertyName: "\u6C34"
+  propertyName: "\u6C37"
