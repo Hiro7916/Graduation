@@ -83,7 +83,17 @@ public class s_EnemyState : MonoBehaviour
         if(deadFlag)
         {
             Destroy(this.gameObject);
-            Instantiate(dropItem,transform.position,Quaternion.identity);
+
+            if(this.name=="Boss")
+            {
+                GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("ClearH");
+            }
+            else
+            { 
+            }
+
+
+            Instantiate(dropItem,transform.position+new Vector3(0,1,0),Quaternion.identity);
         }
     }
 

@@ -225,7 +225,8 @@ public class s_BossMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<s_PlayerStatus>().Damage(10);
+            if (!collision.gameObject.GetComponent<s_PlayerGuard>().GuardCheck(transform.position, false))
+                collision.gameObject.GetComponent<s_PlayerStatus>().Damage(10);
         }
     }
     ///<summary>ボスが行動できるかの設定</summary>
