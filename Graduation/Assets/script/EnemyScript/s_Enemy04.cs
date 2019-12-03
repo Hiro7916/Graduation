@@ -67,6 +67,9 @@ public class s_Enemy04 : MonoBehaviour
         if (s_PoseControl.GetLoadPose())
             return;
 
+        transform.Rotate(new Vector3(1, 0, 1), 0.0f);
+
+
         if (!battleState)
         {
             PlayerDisCheck();
@@ -79,6 +82,11 @@ public class s_Enemy04 : MonoBehaviour
             }
             //Action関数を実行
             MoveActions[moveActionNum]();
+
+            if (GetComponent<s_EnemyState>().HitstageChack())
+            {
+                transform.Rotate(new Vector3(0,1,0),Random.Range(90, 240));
+            }
         }
         else
         {
@@ -121,7 +129,7 @@ public class s_Enemy04 : MonoBehaviour
     ///<summary>移動</summary>
     private void Move()
     {
-        transform.position+=transform.forward*0.1f;
+        transform.position+=transform.forward*0.3f;
 
         moveTimer--;
         if (moveTimer <= 0)
@@ -206,7 +214,7 @@ public class s_Enemy04 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.transform.name);
+
         if (collision.gameObject.tag == "Player")
         {
             if (!collision.gameObject.GetComponent<s_PlayerGuard>().GuardCheck(transform.position,false))

@@ -66,6 +66,7 @@ public class s_Enemy01 : MonoBehaviour
         //ポーズ画面などが開かれていたら何もしない
         if (s_PoseControl.GetLoadPose())
             return;
+        transform.Rotate(new Vector3(1, 0, 1), 0.0f);
 
         if (!battleState)
         {
@@ -79,6 +80,11 @@ public class s_Enemy01 : MonoBehaviour
             }
             //Action関数を実行
             MoveActions[moveActionNum]();
+
+            if (GetComponent<s_EnemyState>().HitstageChack())
+            {
+                transform.Rotate(new Vector3(0,1,0),Random.Range(90, 240));
+            }
         }
         else
         {
@@ -120,9 +126,8 @@ public class s_Enemy01 : MonoBehaviour
     }
     ///<summary>移動</summary>
     private void Move()
-    {
-        //rig.AddForce(transform.forward*40);
-        transform.position+=transform.forward*0.1f;
+{
+        transform.position+=transform.forward*0.3f;
         moveTimer--;
         if (moveTimer <= 0)
         {
@@ -138,7 +143,7 @@ public class s_Enemy01 : MonoBehaviour
     {
         GetComponent<s_AnimationControl>().ChangeAnime(motionName[0]);
         waitTime = 60 * 3;
-        Debug.Log("waitStart");
+
     }
     ///<summary>その場で待機(Action関数)</summary>
     private void Wait()
@@ -147,7 +152,7 @@ public class s_Enemy01 : MonoBehaviour
 
         if (waitTime <= 0)
         {
-            Debug.Log("waitEnd");
+
             MoveThink();
         }
     }
@@ -157,7 +162,7 @@ public class s_Enemy01 : MonoBehaviour
         Random rnd = new Random();
         moveActionNum = Random.Range(0, 2);
         preMoveActionNum = MoveActions.Count + 1;
-        Debug.Log("Think");
+
     }
 
     private void PlayerDisCheck()
@@ -167,7 +172,7 @@ public class s_Enemy01 : MonoBehaviour
             Random rnd = new Random();
             actionNum = Random.Range(0, 1);
             preActionNum = MoveActions.Count + 1;
-            Debug.Log(actionNum);
+
             battleState = true;
         }
     }
@@ -176,7 +181,6 @@ public class s_Enemy01 : MonoBehaviour
     {
         GetComponent<s_AnimationControl>().ChangeAnime(motionName[2]);
 
-        Debug.Log("ATstart");
         Vector3 posi = player.transform.position- transform.position ;
         attackPosition = player.transform.position + posi*1.5f;
         attackPosition.y = 0;
@@ -188,7 +192,6 @@ public class s_Enemy01 : MonoBehaviour
 
         if (Vector3.Distance(transform.position, attackPosition) <= 4f||Vector3.Distance(transform.position, player.transform.position)>30)
         {
-            Debug.Log("ti");
 
             AttackThink();
         }
@@ -200,7 +203,7 @@ public class s_Enemy01 : MonoBehaviour
     private void AttackThink()
     {
         preActionNum = MoveActions.Count + 1;
-        Debug.Log("AttackThink");
+
     }
 
     private void OnCollisionEnter(Collision collision)

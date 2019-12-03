@@ -32,7 +32,7 @@ public class s_ParticlControl : MonoBehaviour
             }
             foreach (var ob in objs)
             {
-                Debug.Log(ob.GetComponent<magic>() == null);
+
                 if (ob.GetComponent<magic>() == null)
                 {
                     continue;

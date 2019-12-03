@@ -30,7 +30,7 @@ public class s_DataSave : MonoBehaviour
     private void DataSave()
     {
         //Enterキーが押された場合データをセーブ
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return)||Input.GetButton("A"))
         {
             //既存のデータがある場合上書き
             if (GetComponent<s_LoadManager>().GetFileName() != "NewGame")
@@ -48,7 +48,7 @@ public class s_DataSave : MonoBehaviour
             }
         }
         //BackSpaceが押された場合セーブウィンドを閉じる
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Backspace)||Input.GetButton("B"))
         {
             selectWind.SetActive(true);
             myWind.SetActive(false);

@@ -122,7 +122,7 @@ public class s_LoadManager : MonoBehaviour
     private void ListPos()
     {
         //下キーが押された場合
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow)||s_Input.getdownArroUp(-1))
         {
             //リストの範囲外に出る場合は何もしない
             if (target + 1 >= saveDataList.Count)
@@ -147,7 +147,7 @@ public class s_LoadManager : MonoBehaviour
         }
 
         //上キーが押された場合
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow)||s_Input.getdownArroUp(1))
         {
             //リストの範囲外に出る場合は何もしない
             if (target <= 0)

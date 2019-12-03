@@ -48,7 +48,7 @@ public class s_WarpWind : MonoBehaviour
     }
     private void Select()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow)||s_Input.getdownArroUp(-1))
         {
             names = GameObject.Find("o_player").GetComponent<s_PlayerSavePointMemory>().GetListNames();
             if (target +1< names.Count)
@@ -70,7 +70,7 @@ public class s_WarpWind : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow)||s_Input.getdownArroUp(1))
         {
             names = GameObject.Find("o_player").GetComponent<s_PlayerSavePointMemory>().GetListNames();
             if (target - 1 >= 0)
@@ -92,7 +92,7 @@ public class s_WarpWind : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return)||Input.GetButtonDown("A"))
         {
             names = GameObject.Find("o_player").GetComponent<s_PlayerSavePointMemory>().GetListNames();
             GameObject player = GameObject.Find("o_player");
@@ -105,7 +105,7 @@ public class s_WarpWind : MonoBehaviour
             myText.text = "";
         }
         //BackSpaceが押された場合セーブウィンドを閉じる
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Backspace)||Input.GetButtonDown("B"))
         {
             selsectWind.SetActive(true);
             myWind.SetActive(false);

@@ -65,6 +65,7 @@ public class s_PlayerSaveControl : MonoBehaviour
         {
             hit = false;
             hitObj = null;
+GetComponent<s_PlayerStatus>().Recovery(GetComponent<s_PlayerStatus>().maxHp);
 
 
 
@@ -75,7 +76,7 @@ public class s_PlayerSaveControl : MonoBehaviour
     private void OpenWind()
     {
         //セーブポイントにhitしていて0キーを押されている場合
-        if (hit && Input.GetKeyDown(KeyCode.Alpha0))
+        if (hit &&( Input.GetKeyDown(KeyCode.Alpha0)||Input.GetButtonDown("X")))
         {
             loadOn = true;
             GameObject.Find("o_SaveLoad_Wind").GetComponent<s_SelectWindManager>().Open();
@@ -121,26 +122,12 @@ public class s_PlayerSaveControl : MonoBehaviour
         {
             loadOn = true;
             looder.SetActive(true);
-           // s_PoseControl.ChangeWindPose(true);
+
         }
     }
     public bool GetHit()
     {
         return hit;
     }
-    void Warp()
-    {
-        if (!loadOn)
-            return;
-        //for(int i=0;i<numberKey.Count;i++)
-        //{
-        //    if(Input.GetKeyDown(numberKey[i])&& GetComponent<s_PlayerSavePointMemory>().GetListNames().Count>i)
-        //    {
-        //        Vector3 posi = GetComponent<s_PlayerSavePointMemory>().GetPosition(GetComponent<s_PlayerSavePointMemory>().GetListNames()[i]);
-        //        posi.y += 5;
-        //        transform.position = posi;
-        //    }
-        //}
 
-    }
 }

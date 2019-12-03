@@ -37,7 +37,7 @@ public class s_DataLoader : MonoBehaviour
                 s_PoseControl.ChangeWindPose(false);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Backspace)||Input.GetButton("B"))
         {
                 GameObject.Find("LoadWind").SetActive(false); ;
                 foreach (Transform transform in GameObject.Find("Panel").transform)

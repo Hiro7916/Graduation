@@ -61,7 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\amusedART\StoneMonster\Script\Animation_Test.cs" />
+    <Compile Include="Assets\eneDame.cs" />
     <Compile Include="Assets\MapModle\AA.cs" />
+    <Compile Include="Assets\s_damageCamera.cs" />
+    <Compile Include="Assets\s_DropHp.cs" />
+    <Compile Include="Assets\s_EneHPGauge.cs" />
     <Compile Include="Assets\script\EnemyScript\Boss\s_BossMove.cs" />
     <Compile Include="Assets\script\EnemyScript\s_AttackEnemyControl.cs" />
     <Compile Include="Assets\script\EnemyScript\s_Enemy01.cs" />
@@ -91,6 +95,7 @@
     <Compile Include="Assets\script\playerScript\s_PlayerSpawn.cs" />
     <Compile Include="Assets\script\playerScript\s_PlayerStatus.cs" />
     <Compile Include="Assets\script\s_ExpControl.cs" />
+    <Compile Include="Assets\script\s_Input.cs" />
     <Compile Include="Assets\script\s_ParticlControl.cs" />
     <Compile Include="Assets\script\s_Property.cs" />
     <Compile Include="Assets\script\Save&amp;Load\s_DataLoader.cs" />
@@ -107,6 +112,7 @@
     <Compile Include="Assets\script\SceneScript\s_LoadScene.cs" />
     <Compile Include="Assets\script\SceneScript\s_SceneManager.cs" />
     <Compile Include="Assets\script\SwitchScript\s_BossSwitch.cs" />
+    <Compile Include="Assets\script\SystemScript\NextParticl.cs" />
     <Compile Include="Assets\script\SystemScript\s_AnimationControl.cs" />
     <Compile Include="Assets\script\SystemScript\s_PoseControl.cs" />
     <Compile Include="Assets\script\SystemScript\s_TitleContror.cs" />

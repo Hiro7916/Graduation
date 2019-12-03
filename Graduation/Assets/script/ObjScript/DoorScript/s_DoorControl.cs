@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 ///<summary>扉の管理</summary>
 public class s_DoorControl : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class s_DoorControl : MonoBehaviour
     ///<summary>HPが０になったか</summary>
     private bool dead;
     private float rota;
+
+    public Text playerText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,7 @@ public class s_DoorControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+Text();
         BreakCheck();
         if (dead)
             AnimeDead();
@@ -28,7 +33,6 @@ public class s_DoorControl : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log(other.GetComponent<s_ParticleControl>().GetLv());
 
         if (other.GetComponent<s_ParticleControl>() != null)
         {
@@ -57,7 +61,24 @@ public class s_DoorControl : MonoBehaviour
         }
         else
         {
+            playerText.text = "";
              Destroy(this.gameObject);
         }
+    }
+
+    private void Text()
+    {
+        GameObject player;
+        if (GameObject.Find("o_player") != null)
+            player = GameObject.Find("o_player");
+        else
+        {
+            playerText.text = "";
+            return;
+        }
+        if (Vector3.Distance(transform.position, player.transform.position) < 20)
+            playerText.text = "必要Lv2";
+        else
+            playerText.text = "";
     }
 }

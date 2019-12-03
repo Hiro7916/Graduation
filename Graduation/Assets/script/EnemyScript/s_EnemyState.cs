@@ -6,18 +6,24 @@ using UnityEngine;
 public class s_EnemyState : MonoBehaviour
 {
     ///<summary>体力</summary>
-    private int hp;
+    public int hp;
+public int maxHp;
     ///<summary>死亡しているか</summary>
     private bool deadFlag;
     ///<summary>死亡時に落とすアイテム</summary>
-    public GameObject dropItem;
+    public GameObject dropItem,drop2;
     ///<summary>ダメージを受けたときに表示するUI</summary>
     public GameObject damageUi;
     // Start is called before the first frame update
+
+    public GameObject next;
     void Start()
     {
         //体力と死亡フラグを初期化
-        hp = 100;
+        if (hp == 0)
+            hp = 100;
+
+maxHp=hp;
         deadFlag = false;
     }
 
@@ -62,6 +68,10 @@ public class s_EnemyState : MonoBehaviour
 
         }
 
+if(GetComponent<eneDame>()!=null)
+{
+GetComponent<eneDame>().Dame();
+}
 
         //hpを減らす
         hp -= dame;
@@ -86,7 +96,8 @@ public class s_EnemyState : MonoBehaviour
 
             if(this.name=="Boss")
             {
-                GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("ClearH");
+                 GameObject obj=  Instantiate(next);
+                 obj.transform.position = transform.position;
             }
             else
             { 
@@ -94,7 +105,29 @@ public class s_EnemyState : MonoBehaviour
 
 
             Instantiate(dropItem,transform.position+new Vector3(0,1,0),Quaternion.identity);
+int r=Random.Range(0,2);
+Debug.Log(r);
+
+if(r>=1)
+            Instantiate(drop2,transform.position+new Vector3(0,1,0),Quaternion.identity);
+
         }
+    }
+
+    public bool HitstageChack()
+    {
+        Ray ray = new Ray(transform.position + new Vector3(0, 1.5f, 0), transform.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 2.5f))
+            if (hit.transform.tag == "stage")
+            {
+
+                return true;
+            }
+
+
+        return false;
+
     }
 
 }

@@ -10,12 +10,23 @@ public class s_PlayerMove : MonoBehaviour
     private Vector2 velocity;
     ///<summary>カメラ</summary>
     public GameObject playerCamera;
-　　///<summary>playerのRigidbody</summary>
+    ///<summary>playerのRigidbody</summary>
     private Rigidbody rig;
+    ///<summary>ダッシュ受付時間</summary>
+    private int dashTimer;
+    ///<summary>ダッシュしているか</summary>
+    private bool dashOn, dashOn2;
+    ///<summary>前回の移動量</summary>
+    private Vector2 prevec;
+
+    private int a, s, d, w,j;
     void Start()
     {
         this.gameObject.GetComponent<Renderer>().material.color = Color.blue;
         rig = GetComponent<Rigidbody>();
+        dashOn = false;
+        dashOn2 = false;
+        a = 0; s = 0; d = 0; w = 0;j=0;
     }
 
     // Update is called once per frame
@@ -33,10 +44,49 @@ public class s_PlayerMove : MonoBehaviour
         velocity = Vector2.zero;
 
 
-        velocity.x = Input.GetAxis("Horizontal");
-        velocity.y = Input.GetAxis("Vertical");
+        velocity.x = Input.GetAxis("HorizontalJ");
+        velocity.y = Input.GetAxis("VerticalJ");
 
-        velocity = Vector3.zero;
+        if (velocity != Vector2.zero && prevec == Vector2.zero)
+        {
+            if (j > 0)
+            {
+
+                dashOn2 = true;
+            }
+            j = 20;
+        }
+        else
+        {
+            if (dashOn2)
+                if (velocity == Vector2.zero)
+                    dashOn2 = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (a > 0)
+                dashOn = true;
+            a = 10;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (d > 0)
+                dashOn = true;
+            d = 10;
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (w > 0)
+                dashOn = true;
+            w = 10;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (s > 0)
+                dashOn = true;
+            s = 10;
+        }
 
         if (Input.GetKey(KeyCode.A))
             velocity.x = -1;
@@ -49,11 +99,39 @@ public class s_PlayerMove : MonoBehaviour
 
 
 
+a--;
+w--;
+s--;
+d--;
+j--;
+
+if(dashOn)
+{
+  if (!Input.GetKey(KeyCode.A)&!Input.GetKey(KeyCode.S)&&
+!Input.GetKey(KeyCode.D)&&!Input.GetKey(KeyCode.W))
+dashOn=false;
+
+
+}
+
+
+
         Vector3 cameraForward = Vector3.Scale(playerCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
         Vector3 moveForward = cameraForward * velocity.y + playerCamera.transform.right * velocity.x;
-        moveForward *= 0.1f;
-        transform.position+=moveForward;
 
+        if (dashOn||dashOn2)
+            moveForward *= 0.35f;
+        else
+            moveForward *= 0.2f;
+
+
+
+        transform.position += moveForward;
+        prevec = velocity;
+
+
+  Debug.Log(dashOn2);
+      
 
     }
     ///<summary>プレイヤーの回転処理（引数は必ず自分のTransformで呼び出す事！）</summary>
@@ -64,12 +142,10 @@ public class s_PlayerMove : MonoBehaviour
         if (tran.tag != "Player")
             return;
 
-        Vector2 rot =Vector2.zero;
+        Vector2 rot = Vector2.zero;
 
         rot.x = Input.GetAxis("Horizontal2");
         rot.y = Input.GetAxis("Vertical2");
-
-        rot = Vector3.zero;
 
         if (Input.GetKey(KeyCode.LeftArrow))
             rot.x = -1;
@@ -82,12 +158,12 @@ public class s_PlayerMove : MonoBehaviour
 
 
 
-        if (playerCamera.transform.localEulerAngles.x >60&&playerCamera.transform.localEulerAngles.x<180)
+        if (playerCamera.transform.localEulerAngles.x > 60 && playerCamera.transform.localEulerAngles.x < 180)
         {
             if (rot.y > 0)
                 rot.y = 0;
         }
-        if (playerCamera.transform.localEulerAngles.x <360- 60 && playerCamera.transform.localEulerAngles.x > 180)
+        if (playerCamera.transform.localEulerAngles.x < 360 - 60 && playerCamera.transform.localEulerAngles.x > 180)
         {
             if (rot.y < 0)
                 rot.y = 0;
@@ -101,11 +177,13 @@ public class s_PlayerMove : MonoBehaviour
     ///<summary>ジャンプ</summary>
     public void Jump(Transform tran)
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("A"))
         {
             Vector3 vel = Vector3.zero;
             vel.y = 5;
             rig.velocity += vel;
         }
+
+
     }
 }

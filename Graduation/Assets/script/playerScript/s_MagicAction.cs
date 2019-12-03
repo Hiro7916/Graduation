@@ -109,7 +109,7 @@ public class s_MagicAction : MonoBehaviour
     void PlayMagic()
     {
         //ボタンが押された瞬間
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P)||Input.GetButtonDown("B"))
         {
             //現在の魔法を取得
             activeParticl = GetComponent<s_PlayerHaveMagic>().GetMagic(GetComponent<s_PlayerHaveMagic>().GetMagicNames()[nowMagicNumber]).GetComponent<s_MagicObjectControl>().GetNowMagicObject();
@@ -144,7 +144,7 @@ public class s_MagicAction : MonoBehaviour
 
         }
         //ボタンが押されている間
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.P)||Input.GetButton("B"))
         {
             //保存されたオブジェクトがなければ何もしない
             if (preParticl != null)
@@ -155,7 +155,7 @@ public class s_MagicAction : MonoBehaviour
 
         }
         //ボタンが離されたことを知らせる
-        if (Input.GetKeyUp(KeyCode.P))
+        if (Input.GetKeyUp(KeyCode.P)||Input.GetButtonUp("B"))
         {
             if (preParticl != null)
             {
