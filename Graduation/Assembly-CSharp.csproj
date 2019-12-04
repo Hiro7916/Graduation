@@ -66,6 +66,7 @@
     <Compile Include="Assets\s_damageCamera.cs" />
     <Compile Include="Assets\s_DropHp.cs" />
     <Compile Include="Assets\s_EneHPGauge.cs" />
+    <Compile Include="Assets\s_mapCOn.cs" />
     <Compile Include="Assets\script\EnemyScript\Boss\s_BossMove.cs" />
     <Compile Include="Assets\script\EnemyScript\s_AttackEnemyControl.cs" />
     <Compile Include="Assets\script\EnemyScript\s_Enemy01.cs" />
