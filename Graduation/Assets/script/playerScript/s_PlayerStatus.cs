@@ -65,6 +65,7 @@ public class s_PlayerStatus : MonoBehaviour
     ///<summary>ダメージを受ける</summary>
     public void Damage(int num)
     {
+GameObject.Find("DameImage").GetComponent<s_damageCamera>().On();
         hp -= num;
         GameObject.Find("HpText").GetComponent<s_PlayerHpUI>().SetText(hp.ToString());
     }

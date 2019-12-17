@@ -36,7 +36,7 @@ public class s_SelectWind : MonoBehaviour
     ///<summary>選択決定</summary>
     private void Select()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.Return)||Input.GetButtonDown("A"))
         {
             Debug.Log(selectNumber);
             switch (selectNumber)
@@ -66,22 +66,23 @@ public class s_SelectWind : MonoBehaviour
     ///<summary>キーで選択移動</summary>
     private void ChangeSelect()
     {
-        if(Input.GetKeyDown(KeyCode.DownArrow))
+        if(Input.GetKeyDown(KeyCode.DownArrow)||s_Input.getdownArroUp(-1))
         {
             if (selectNumber+1 >3)
                 return;
-            Debug.Log(selectNumber);
+           // Debug.Log(selectNumber);
             selectNumber++;
             ChangeText(selectNumber);
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow)||s_Input.getdownArroUp(1))
         {
             if (selectNumber-1<0)
                 return;
-            Debug.Log(selectNumber);
+           // Debug.Log(selectNumber);
             selectNumber--;
             ChangeText(selectNumber);
         }
+
     }
     ///<summary>テキストの変更</summary>
     private void ChangeText(int num)

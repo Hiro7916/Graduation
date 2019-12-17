@@ -8,9 +8,11 @@ public class s_PlayerHpUI : MonoBehaviour
 {
     ///<summary>体力表示用テキスト</summary>
     public Text hpText;
+    public Slider s;
+    int hp;
     // Start is called before the first frame update
     void Start()
-    {        
+    {
     }
 
     // Update is called once per frame
@@ -21,5 +23,20 @@ public class s_PlayerHpUI : MonoBehaviour
     public void SetText(string str)
     {
         hpText.text = str;
+        if (transform.name != "HpText")
+            return;
+        Debug.Log(str);
+        hp = int.Parse(str);
+        SetSlider();
+    }
+
+    public void SetSlider()
+    {
+
+        int num = GameObject.Find("o_player").GetComponent<s_PlayerStatus>().maxHp;
+        s.maxValue = num;
+        s.value = hp;
+
+
     }
 }

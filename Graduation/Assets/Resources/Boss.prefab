@@ -327,6 +327,7 @@ MonoBehaviour:
   dropItem: {fileID: 242933950278126616, guid: 99d264cf0b69e5846897231a3dd01420, type: 3}
   damageUi: {fileID: 7963799232286201104, guid: 489b9495fbdaac44c90869f2af81b62f,
     type: 3}
+  next: {fileID: 6329498537238763187, guid: bfa407c6332991e44a21d34eef6ad533, type: 3}
 --- !u!114 &2997926966101467850
 MonoBehaviour:
   m_ObjectHideFlags: 0

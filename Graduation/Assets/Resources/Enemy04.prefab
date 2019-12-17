@@ -1508,8 +1508,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 242933950278126616, guid: 99d264cf0b69e5846897231a3dd01420, type: 3}
+  drop2: {fileID: 8789331434463365573, guid: ca0afb72b2d867e4a9f198aa487728aa, type: 3}
   damageUi: {fileID: 7963799232286201104, guid: 489b9495fbdaac44c90869f2af81b62f,
     type: 3}
+  next: {fileID: 0}
 --- !u!114 &1988566879712312253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1535,8 +1537,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 242933950278126616, guid: 99d264cf0b69e5846897231a3dd01420, type: 3}
+  drop2: {fileID: 8789331434463365573, guid: ca0afb72b2d867e4a9f198aa487728aa, type: 3}
   damageUi: {fileID: 7963799232286201104, guid: 489b9495fbdaac44c90869f2af81b62f,
     type: 3}
+  next: {fileID: 0}
 --- !u!1 &2507644636431306312
 GameObject:
   m_ObjectHideFlags: 0
