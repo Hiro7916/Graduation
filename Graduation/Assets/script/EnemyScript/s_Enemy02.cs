@@ -159,7 +159,6 @@ public class s_Enemy02 : MonoBehaviour
 
         if (waitTime <= 0)
         {
-            Debug.Log("waitEnd");
             MoveThink();
         }
     }
@@ -169,7 +168,6 @@ public class s_Enemy02 : MonoBehaviour
         Random rnd = new Random();
         moveActionNum = Random.Range(0, 2);
         preMoveActionNum = MoveActions.Count + 1;
-        Debug.Log("Think");
     }
 
     private void PlayerDisCheck()

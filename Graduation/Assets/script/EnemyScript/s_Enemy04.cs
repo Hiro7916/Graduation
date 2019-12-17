@@ -155,7 +155,6 @@ public class s_Enemy04 : MonoBehaviour
 
         if (waitTime <= 0)
         {
-            Debug.Log("waitEnd");
             MoveThink();
         }
     }
@@ -165,7 +164,7 @@ public class s_Enemy04 : MonoBehaviour
         Random rnd = new Random();
         moveActionNum = Random.Range(0, 2);
         preMoveActionNum = MoveActions.Count + 1;
-        Debug.Log("Think");
+
     }
 
     private void PlayerDisCheck()
@@ -175,7 +174,7 @@ public class s_Enemy04 : MonoBehaviour
             Random rnd = new Random();
             actionNum = Random.Range(0, 1);
             preActionNum = MoveActions.Count + 1;
-            Debug.Log(actionNum);
+
             battleState = true;
         }
     }
@@ -184,7 +183,6 @@ public class s_Enemy04 : MonoBehaviour
     {
         GetComponent<s_AnimationControl>().ChangeAnime(motionName[2]);
 
-        Debug.Log("ATstart");
         Vector3 posi = player.transform.position - transform.position;
         float x = Random.Range(-30, 30);
         float z = Random.Range(-30, 30);
@@ -198,7 +196,6 @@ public class s_Enemy04 : MonoBehaviour
 
         if (Vector3.Distance(transform.position, attackPosition) <= 8f)
         {
-            Debug.Log("ti");
 
             AttackThink();
         }

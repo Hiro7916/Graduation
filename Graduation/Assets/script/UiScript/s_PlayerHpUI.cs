@@ -25,7 +25,7 @@ public class s_PlayerHpUI : MonoBehaviour
         hpText.text = str;
         if (transform.name != "HpText")
             return;
-        Debug.Log(str);
+
         hp = int.Parse(str);
         SetSlider();
     }
