@@ -5,6 +5,7 @@ using System.IO;
 using System;
 using System.Text;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 ///<summary>セーブ画面でのセーブ</summary>
 public class s_DataSave : MonoBehaviour
@@ -24,11 +25,14 @@ public class s_DataSave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         DataSave();
     }
     ///<summary>セーブウィンドでの操作</summary>
     private void DataSave()
     {
+if(SceneManager.GetActiveScene().name!="Htuto")
+{
         //Enterキーが押された場合データをセーブ
         if (Input.GetKeyDown(KeyCode.Return)||Input.GetButton("A"))
         {
@@ -47,6 +51,7 @@ public class s_DataSave : MonoBehaviour
                 Debug.Log("save");
             }
         }
+}
         //BackSpaceが押された場合セーブウィンドを閉じる
         if (Input.GetKeyDown(KeyCode.Backspace)||Input.GetButton("B"))
         {

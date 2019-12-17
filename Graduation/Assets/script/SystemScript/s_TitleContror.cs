@@ -83,7 +83,7 @@ public class s_TitleContror : MonoBehaviour
             switch (selectNum)
             {
                 case 0:
-                    GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("Main");
+                    GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("Htuto");
                     break;
                 case 1:
                     GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("LoadSceneH");

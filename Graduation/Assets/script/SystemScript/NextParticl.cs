@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NextParticl : MonoBehaviour
 {
+
+public string ne;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +18,15 @@ public class NextParticl : MonoBehaviour
         
     }
 
+public void set(string name){
+ne=name;}
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name == "o_player")
         {
-             GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ScenNext();
+             GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene(ne);
 
         }
     }
@@ -29,7 +35,7 @@ public class NextParticl : MonoBehaviour
     {
         if(other.name == "o_player")
         {
-             GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ScenNext();
+             GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene(ne);
 
         }   
     }

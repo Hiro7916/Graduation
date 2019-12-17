@@ -9,16 +9,21 @@ public class s_MagicUI_Control : MonoBehaviour
     public Text text;
 
     public Image ime;
-
-    private Dictionary<string, Color> texs;
+public List<Sprite>ll;
+    private Dictionary<string, Sprite> texs;
     // Start is called before the first frame update
     private void Awake()
     {
         
-        texs = new Dictionary<string, Color>();
-        texs.Add("Thunder", Color.yellow);
-        texs.Add("Bubble", Color.blue);
-        texs.Add("EffectBall", Color.white);
+        texs = new Dictionary<string, Sprite>();
+        texs.Add("Thunder",ll[0]);
+        texs.Add("Bubble", ll[2]);
+        texs.Add("EffectBall",ll[1]);
+    }
+
+    private void Start()
+    {
+   
     }
 
     // Update is called once per frame
@@ -31,7 +36,7 @@ public class s_MagicUI_Control : MonoBehaviour
     {
         text.text = tex;
 if(ime!=null)
-        ime.color = texs[tex];
+        ime.sprite = texs[tex];
 
     }
 

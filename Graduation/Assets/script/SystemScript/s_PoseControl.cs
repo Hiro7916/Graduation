@@ -7,6 +7,7 @@ public class s_PoseControl : MonoBehaviour
 {
     ///<summary>ロード画面表示中か(表示中ならtrue)</summary>
     static  bool  windPose = false;
+static bool save=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +25,17 @@ public class s_PoseControl : MonoBehaviour
     {
         windPose = bo;
     }
+    public static void ChangeWindsavePose(bool bo)
+    {
+        save= bo;
+    }
     ///<summary>windを開いているかを取得</summary>
     public static bool GetLoadPose()
     {
         return windPose;
+    }
+    public static bool GetLoadsavePose()
+    {
+        return save;
     }
 }

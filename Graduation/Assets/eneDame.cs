@@ -5,10 +5,16 @@ using UnityEngine;
 public class eneDame : MonoBehaviour
 {
 public List<GameObject> ob;
+Color[] de;
     // Start is called before the first frame update
     void Start()
     {
-        
+de=new Color[ob.Count];
+
+        for (int i = 0; i < ob.Count; i++)
+        {
+            de[i] = ob[i].GetComponent<Renderer>().material.color;
+        }
     }
 
     // Update is called once per frame
@@ -17,7 +23,7 @@ public List<GameObject> ob;
         for (int i = 0; i < ob.Count; i++)
         {
 
-            ob[i].GetComponent<Renderer>().material.color = Color.Lerp(ob[i].GetComponent<Renderer>().material.color, Color.white, Time.deltaTime);
+            ob[i].GetComponent<Renderer>().material.color = Color.Lerp(ob[i].GetComponent<Renderer>().material.color, de[i], Time.deltaTime);
         }
     }
 

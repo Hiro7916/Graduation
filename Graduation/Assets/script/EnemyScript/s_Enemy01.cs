@@ -68,6 +68,7 @@ private int attac1;
         //ポーズ画面などが開かれていたら何もしない
         if (s_PoseControl.GetLoadPose())
             return;
+
         transform.Rotate(new Vector3(1, 0, 1), 0.0f);
 
         if (!battleState)

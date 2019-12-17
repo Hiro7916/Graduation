@@ -59,6 +59,7 @@ public class s_SelectWind : MonoBehaviour
                 case 3:
                     GameObject.Find("o_SaveLoad_Wind").GetComponent<s_SelectWindManager>().End();
                     s_PoseControl.ChangeWindPose(false);
+s_PoseControl.ChangeWindsavePose(false);
                     break;
             }
         }

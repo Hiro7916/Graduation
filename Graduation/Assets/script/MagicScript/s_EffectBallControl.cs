@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 ///<summary>魔法(エフェクトボールの管理)を発射管理</summary>
 public class s_EffectBallControl : MonoBehaviour
-{
+{public AudioSource s;
+public AudioClip a;
     ///<summary>魔法の消える時間</summary>
     private int timer = 60 * 10;
     ///<summary>移動</summary>
@@ -19,7 +20,7 @@ public class s_EffectBallControl : MonoBehaviour
         //カメラに追従しないよう親から外す
         transform.parent = null;
         //死亡フラグの初期化
-        deadFlag = false;
+        deadFlag = false;        s.PlayOneShot(a);
 
     }
 
@@ -36,7 +37,7 @@ public class s_EffectBallControl : MonoBehaviour
     {
         //エネミーに当たったらダメージ
         if (other.tag == "Enemy")
-            other.GetComponent<s_EnemyState>().Damage(10, GetComponent<s_Property>().GetProperty());
+            other.GetComponent<s_EnemyState>().Damage(10, "氷");
         //プレイヤー以外に当たったら削除
         if (other.tag != "Player")
             deadFlag = true;

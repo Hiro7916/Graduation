@@ -27,7 +27,8 @@ public int hp;
         //プレイヤーと当たった場合
         if (other.tag == "Player")
         {
-            other.GetComponent<s_PlayerStatus>().Recovery(hp);
+
+            other.GetComponent<s_PlayerStatus>().Recovery(hp,true);
             Destroy(this.gameObject);
         }
     }

@@ -6,7 +6,8 @@ using UnityEngine;
 public class s_ExpControl : MonoBehaviour
 {
     ///<summary>経験値</summary>
-    public int exp;
+    public int exp;public AudioSource s;
+public AudioClip a;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,11 @@ public class s_ExpControl : MonoBehaviour
         {
             other.GetComponent<s_MagicAction>().AddExp(10);
             other.GetComponent<s_PlayerStatus>().MaxHpUp(2);
+
             Destroy(this.gameObject);
+
+GameObject.Find("GameObject (1)").GetComponent<acs>().OnAni(a);
+
         }
     }
 

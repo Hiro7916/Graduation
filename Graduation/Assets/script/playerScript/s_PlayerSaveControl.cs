@@ -16,6 +16,9 @@ public class s_PlayerSaveControl : MonoBehaviour
     bool loadOn;
     List<KeyCode> numberKey;
     // Start is called before the first frame update
+
+public AudioClip a;
+public AudioSource s;
     void Start()
     {
         //セーブポイントとヒット判定の初期化
@@ -56,8 +59,15 @@ public class s_PlayerSaveControl : MonoBehaviour
             hitObj = other.gameObject;
             Debug.Log(other.name);
             WarpSave();
+            Debug.Log("dp");
+            s.PlayOneShot(a);
+            GetComponent<s_PlayerStatus>().Recovery(GetComponent<s_PlayerStatus>().maxHp, true);
+
         }
+
+
     }
+
     private void OnTriggerExit(Collider other)
     {
         //オブジェクトがセーブポイントならhit状態,オブジェクトの一時保存を解除する
@@ -65,7 +75,6 @@ public class s_PlayerSaveControl : MonoBehaviour
         {
             hit = false;
             hitObj = null;
-GetComponent<s_PlayerStatus>().Recovery(GetComponent<s_PlayerStatus>().maxHp);
 
 
 
@@ -76,11 +85,12 @@ GetComponent<s_PlayerStatus>().Recovery(GetComponent<s_PlayerStatus>().maxHp);
     private void OpenWind()
     {
         //セーブポイントにhitしていて0キーを押されている場合
-        if (hit &&( Input.GetKeyDown(KeyCode.Alpha0)||Input.GetButtonDown("X")))
+        if (hit && (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetButtonDown("X")))
         {
             loadOn = true;
             GameObject.Find("o_SaveLoad_Wind").GetComponent<s_SelectWindManager>().Open();
             s_PoseControl.ChangeWindPose(true);
+            s_PoseControl.ChangeWindsavePose(true);
 
         }
     }

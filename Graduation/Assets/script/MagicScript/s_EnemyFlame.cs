@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class s_EnemyFlame : MonoBehaviour
 {
+public AudioSource s;
+public AudioClip a;
     // Start is called before the first frame update
     void Start()
     {
-        
+
+s.PlayOneShot(a);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+                
     }
 
     private void OnParticleTrigger()

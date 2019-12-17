@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class s_EnemyList : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class s_EnemyList : MonoBehaviour
     ///<summary>選択したデータからエネミーの位置を設定</summary>
     private void Spone()
     {
+
+if(SceneManager.GetActiveScene().name=="Htuto")
+return;
         if (Directory.Exists(s_GameData.GetLoodFileName()))
         {
             string[] playdeta = File.ReadAllLines(s_GameData.GetLoodFileName() + "/EnemyList.txt");

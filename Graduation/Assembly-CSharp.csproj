@@ -60,9 +60,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\acs.cs" />
     <Compile Include="Assets\amusedART\StoneMonster\Script\Animation_Test.cs" />
+    <Compile Include="Assets\aTex.cs" />
+    <Compile Include="Assets\bgm.cs" />
+    <Compile Include="Assets\bgm2.cs" />
+    <Compile Include="Assets\cAtex.cs" />
     <Compile Include="Assets\eneDame.cs" />
+    <Compile Include="Assets\jampText.cs" />
     <Compile Include="Assets\MapModle\AA.cs" />
+    <Compile Include="Assets\mmm.cs" />
     <Compile Include="Assets\s_damageCamera.cs" />
     <Compile Include="Assets\s_DropHp.cs" />
     <Compile Include="Assets\s_EneHPGauge.cs" />
@@ -123,6 +130,8 @@
     <Compile Include="Assets\script\UiScript\s_PlayerHpUI.cs" />
     <Compile Include="Assets\script\UiScript\s_SaveUIControl.cs" />
     <Compile Include="Assets\script\UISprict\focusScript.cs" />
+    <Compile Include="Assets\tbi.cs" />
+    <Compile Include="Assets\tutoDeadSp.cs" />
     <Compile Include="Assets\UnityChan\Scripts\AutoBlink.cs" />
     <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
     <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
@@ -135,6 +144,7 @@
     <Compile Include="Assets\UnityChan\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
     <Compile Include="Assets\UnityChan\SplashScreen\Scripts\SplashScreen.cs" />
+    <Compile Include="Assets\wiiii.cs" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
     <None Include="Assets\StreamingAssets\SaveData\1\playData.txt" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />

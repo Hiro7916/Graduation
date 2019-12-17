@@ -4,10 +4,12 @@ using UnityEngine;
 ///<summary>雷の魔法</summary>
 public class s_ThunderControl : MonoBehaviour
 {
+public AudioSource s;
+public AudioClip a;
     // Start is called before the first frame update
     void Start()
     {
-        
+        s.PlayOneShot(a);
     }
 
     // Update is called once per frame

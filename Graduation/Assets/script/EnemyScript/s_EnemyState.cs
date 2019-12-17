@@ -67,6 +67,14 @@ maxHp=hp;
             }
 
         }
+        if (transform.name == "kaminari (1)")
+        {
+            if (propety != "水")
+            {
+                dame *= 0;
+            }
+
+        }
 
 if(GetComponent<eneDame>()!=null)
 {
@@ -98,18 +106,21 @@ GetComponent<eneDame>().Dame();
             {
                  GameObject obj=  Instantiate(next);
                  obj.transform.position = transform.position;
+obj.GetComponent<NextParticl>().set("ClearH");
             }
             else
-            { 
+            {
             }
 
 
-            Instantiate(dropItem,transform.position+new Vector3(0,1,0),Quaternion.identity);
-int r=Random.Range(0,2);
-Debug.Log(r);
+if(dropItem==null)
+return;
+            Instantiate(dropItem, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+            int r = Random.Range(0, 2);
+            Debug.Log(r);
 
-if(r>=1)
-            Instantiate(drop2,transform.position+new Vector3(0,1,0),Quaternion.identity);
+            if (r >= 1)
+                Instantiate(drop2, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
 
         }
     }

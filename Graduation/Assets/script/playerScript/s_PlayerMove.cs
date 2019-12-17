@@ -19,6 +19,7 @@ public class s_PlayerMove : MonoBehaviour
     ///<summary>前回の移動量</summary>
     private Vector2 prevec;
 
+public GameObject pose;
     private int a, s, d, w,j;
     void Start()
     {
@@ -32,6 +33,27 @@ public class s_PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G) || Input.GetButtonDown("start"))
+        {
+            if (!s_PoseControl.GetLoadsavePose() && s_PoseControl.GetLoadPose())
+            {
+                s_PoseControl.ChangeWindPose(false);
+                Debug.Log("on1");
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                Debug.Log("on2");
+             pose.SetActive(false);
+            }
+            else if (!s_PoseControl.GetLoadsavePose() && !s_PoseControl.GetLoadPose())
+            {
+                s_PoseControl.ChangeWindPose(true);
+                pose.SetActive(true);
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            }
+        }
+
+
 
     }
     ///<summary>移動処理（引数は必ず自分のTransfoemで呼び出す事！）</summary>
@@ -122,7 +144,7 @@ dashOn=false;
         if (dashOn||dashOn2)
             moveForward *= 0.35f;
         else
-            moveForward *= 0.2f;
+            moveForward *= 0.1f;
 
 
 

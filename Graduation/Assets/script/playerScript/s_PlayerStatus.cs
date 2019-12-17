@@ -4,6 +4,8 @@ using UnityEngine;
 ///<summary>体力や状態</summary>
 public class s_PlayerStatus : MonoBehaviour
 {
+public AudioClip a;
+public AudioSource s;
     ///<summary>HPの最大値</summary>
     public int maxHp;
     ///<summary>現在のHP</summary>
@@ -19,14 +21,16 @@ public class s_PlayerStatus : MonoBehaviour
 
     void Awake()
     {
-        //hpを初期化
-        Recovery(maxHp);
-        //テキストに表示
-        GameObject.Find("HpText").GetComponent<s_PlayerHpUI>().SetText(hp.ToString());
+
     }
     // Start is called before the first frame update
     void Start()
     {
+        //hpを初期化
+        Recovery(maxHp,false);
+
+        //テキストに表示
+        GameObject.Find("HpText").GetComponent<s_PlayerHpUI>().SetText(hp.ToString());
     }
 
     // Update is called once per frame
@@ -38,6 +42,11 @@ public class s_PlayerStatus : MonoBehaviour
         {
             Debug.Log(playHour+":"+playMinute+":"+playSecond);
         }
+if(hp<maxHp/8)
+{
+if(!s.isPlaying)
+s.PlayOneShot(a);
+}
     }
     ///<summary>現在のHPを取得</summary>
     public int GetHp()
@@ -45,10 +54,15 @@ public class s_PlayerStatus : MonoBehaviour
         return hp;
     }
     ///<summary>HPを回復</summary>
-    public void Recovery(int num)
+    public void Recovery(int num,bool a)
     {
+
+
+        if (GameObject.Find("DameImage").GetComponent<s_damageCamera>() != null)
+            GameObject.Find("DameImage").GetComponent<s_damageCamera>().Onn(a);
+
         //回復後の体力が最大値以上なら最大値に
-        if(hp+num>=maxHp)
+        if (hp+num>=maxHp)
         {
             hp = maxHp;
             GameObject.Find("HpText").GetComponent<s_PlayerHpUI>().SetText(hp.ToString());
@@ -65,6 +79,9 @@ public class s_PlayerStatus : MonoBehaviour
     ///<summary>ダメージを受ける</summary>
     public void Damage(int num)
     {
+if(s_PoseControl.GetLoadsavePose()||s_PoseControl.GetLoadPose())
+return;
+
 GameObject.Find("DameImage").GetComponent<s_damageCamera>().On();
         hp -= num;
         GameObject.Find("HpText").GetComponent<s_PlayerHpUI>().SetText(hp.ToString());
@@ -90,7 +107,7 @@ GameObject.Find("DameImage").GetComponent<s_damageCamera>().On();
         if(hp<=0)
         {
             SetIsDead(true);
-            GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("TitleH");
+            GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("HBadEndingH");
         }
     }
 
