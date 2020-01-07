@@ -21,7 +21,7 @@ public class cAtex : MonoBehaviour
     {
                 if (other.name == "o_player")
         {
-            t.text = "R1 or L1で変更";
+            t.text = "R1 or L1で魔法変更";
         }
     }
 

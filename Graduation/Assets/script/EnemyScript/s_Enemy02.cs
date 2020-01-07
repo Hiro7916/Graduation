@@ -133,7 +133,7 @@ public class s_Enemy02 : MonoBehaviour
     ///<summary>移動</summary>
     private void Move()
     {
-       transform.position+=transform.forward*0.3f;
+       transform.position+=(transform.forward*5)*Time.deltaTime;
 
         moveTimer--;
         if (moveTimer <= 0)
@@ -199,6 +199,6 @@ public class s_Enemy02 : MonoBehaviour
     {
         transform.LookAt(player.transform);
         if(Vector3.Distance(player.transform.position,transform.position)>=10)
-            transform.position+=transform.forward*0.1f;
+            transform.position+=(transform.forward*5)*Time.deltaTime;
     }
 }

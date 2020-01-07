@@ -17,8 +17,10 @@ public class s_PlayerControl : MonoBehaviour
         //ポーズ中なら何もしない
         if (s_PoseControl.GetLoadPose())
             return;
+
         //移動
-        GetComponent<s_PlayerMove>().Move(transform);
+    
+            GetComponent<s_PlayerMove>().Move(transform);
         GetComponent<s_PlayerMove>().Rotation(transform);
         GetComponent<s_PlayerMove>().Jump(transform);
         //カメラ
@@ -67,5 +69,5 @@ public class s_PlayerControl : MonoBehaviour
             GetComponent<s_PlayerCameraControl>().TargetChange(transform);
         }
     }
-   
+
 }

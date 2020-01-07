@@ -148,6 +148,8 @@
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
     <None Include="Assets\StreamingAssets\SaveData\1\playData.txt" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
+    <None Include="Assets\StreamingAssets\SaveData\2\playData.txt" />
+    <None Include="Assets\StreamingAssets\SaveData\2\playerMagicData.txt" />
     <None Include="Assets\StreamingAssets\SaveData\1\playerMagicData.txt" />
     <None Include="Assets\StreamingAssets\SaveData\1\EnemyList.txt" />
     <None Include="Assets\UnityChan\Voice\unity-chan_voice_list.txt" />
@@ -159,8 +161,10 @@
     <None Include="Assets\UnityChan\Stage\Shader\AlphaMask.shader" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
     <None Include="Assets\StreamingAssets\SaveData\1\playerData.txt" />
+    <None Include="Assets\StreamingAssets\SaveData\2\playerData.txt" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
+    <None Include="Assets\StreamingAssets\SaveData\2\EnemyList.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/ss/Graduation/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

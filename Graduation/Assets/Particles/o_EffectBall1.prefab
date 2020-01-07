@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8380657760780907509}
   - component: {fileID: 1095547208533524803}
   - component: {fileID: 2362650146621156605}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ParticleBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4766,7 +4766,7 @@ GameObject:
   - component: {fileID: 8380657761296367312}
   - component: {fileID: 8380657761296367313}
   - component: {fileID: 8062836917354244769}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: o_EffectBall1
   m_TagString: Magic
   m_Icon: {fileID: 0}
@@ -4963,6 +4963,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ConvergenceParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 969074966163390377, guid: 84b83e7afd69cc245a40b3b07aed0767,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 878425461235466207, guid: 84b83e7afd69cc245a40b3b07aed0767,
         type: 3}

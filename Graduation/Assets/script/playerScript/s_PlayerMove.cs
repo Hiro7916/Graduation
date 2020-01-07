@@ -142,13 +142,13 @@ dashOn=false;
         Vector3 moveForward = cameraForward * velocity.y + playerCamera.transform.right * velocity.x;
 
         if (dashOn||dashOn2)
-            moveForward *= 0.35f;
+            moveForward *= 13;
         else
-            moveForward *= 0.1f;
+            moveForward *=7;
 
 
-
-        transform.position += moveForward;
+if(!HitstageChack(moveForward*Time.deltaTime))
+        transform.position += moveForward*Time.deltaTime;
         prevec = velocity;
 
 
@@ -190,7 +190,7 @@ dashOn=false;
             if (rot.y < 0)
                 rot.y = 0;
         }
-        rot *= 3;
+        rot *= 50*Time.deltaTime;
 
         transform.Rotate(transform.up, rot.x);
         playerCamera.transform.Rotate(Vector3.right, rot.y);
@@ -206,6 +206,21 @@ dashOn=false;
             rig.velocity += vel;
         }
 
+
+    }
+
+    public bool HitstageChack(Vector3 vec)
+    {
+        Ray ray = new Ray(transform.position + new Vector3(0, 0, 0), vec);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit,2))
+            if (hit.transform.tag == "stage")
+            {
+                return true;
+            }
+
+
+        return false;
 
     }
 }

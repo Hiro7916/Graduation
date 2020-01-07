@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6334077428568670959}
   - component: {fileID: 642579344397840752}
   - component: {fileID: 3600154310126704477}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fllame
   m_TagString: Magic
   m_Icon: {fileID: 0}

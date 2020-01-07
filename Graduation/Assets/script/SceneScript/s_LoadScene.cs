@@ -13,12 +13,12 @@ public class s_LoadScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)||Input.GetButtonDown("A"))
         {
             s_GameData.SetFileName(GameObject.Find("Panel").GetComponent<s_LoadManager>().GetFileName());
             GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("Main");
         }
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Backspace)||Input.GetButtonDown("B"))
         {
             GameObject.Find("o_SceneManager").GetComponent<s_SceneManager>().ChangeScene("TitleH");
 

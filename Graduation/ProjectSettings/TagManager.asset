@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Magic
   - stage
+  - camera
   layers:
   - Default
   - TransparentFX
@@ -19,9 +20,9 @@ TagManager:
   - 
   - PostProcessing
   - SaveData
-  - 
-  - 
-  - 
+  - camaera
+  - ene
+  - magi
   - 
   - 
   - 

@@ -37,7 +37,7 @@ public class s_TitleContror : MonoBehaviour
     private void SelectChange()
     {
         //上キーを押した場合
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow)||s_Input.getdownArroUp(1))
         {
             if (selectNum - 1 >= 0)
             {
@@ -46,7 +46,7 @@ public class s_TitleContror : MonoBehaviour
             }
         }
         //下キーを押した場合
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow)||s_Input.getdownArroUp(-1))
         {
             if (selectNum + 1 <= objs.Count-1)
             {
@@ -78,7 +78,7 @@ public class s_TitleContror : MonoBehaviour
     ///<summary>シーンを変更</summary>
     private void SceneChange()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)||Input.GetButton("A"))
         {
             switch (selectNum)
             {

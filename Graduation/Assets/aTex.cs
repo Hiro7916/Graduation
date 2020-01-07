@@ -21,7 +21,7 @@ public class aTex : MonoBehaviour
     {
                 if (other.name == "o_player")
         {
-            t.text = "Pで攻撃";
+            t.text = "Bで攻撃";
         }
     }
 

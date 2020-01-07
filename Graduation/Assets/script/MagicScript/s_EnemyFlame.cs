@@ -25,7 +25,8 @@ s.PlayOneShot(a);
     }
 
     private void OnParticleCollision(GameObject other)
-    {
+    {if(this.name=="o_Bubble1(Clone)")
+return;
         if (other.tag == "Player")
         {
             other.GetComponent<s_PlayerStatus>().Damage(2);
@@ -33,6 +34,9 @@ s.PlayOneShot(a);
     }
     private void OnCollisionEnter(Collision collision)
     {
+
+if(this.name=="o_Bubble1(Clone)")
+return;
         Debug.Log(collision.gameObject.name); ;
         if (collision.gameObject.tag == "Player")
         {
@@ -41,6 +45,9 @@ s.PlayOneShot(a);
     }
     private void OnTriggerEnter(Collider other)
     {
+
+if(this.name=="o_Bubble1(Clone)")
+return;
         Debug.Log(other.name); ;
         if (other.tag == "Player")
         {

@@ -129,7 +129,7 @@ public class s_Enemy04 : MonoBehaviour
     ///<summary>移動</summary>
     private void Move()
     {
-        transform.position+=transform.forward*0.3f;
+        transform.position+=(transform.forward*5f)*Time.deltaTime;
 
         moveTimer--;
         if (moveTimer <= 0)
@@ -199,7 +199,7 @@ public class s_Enemy04 : MonoBehaviour
 
             AttackThink();
         }
-        transform.position+=transform.forward*0.15f;
+        transform.position+=(transform.forward*5)*Time.deltaTime;
     }
 
     ///<summary>移動か待機か考える</summary>

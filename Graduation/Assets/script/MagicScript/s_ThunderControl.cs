@@ -31,4 +31,5 @@ public AudioClip a;
             other.GetComponent<s_EnemyState>().Damage(10,GetComponent<s_Property>().GetProperty());
 
     }
+
 }

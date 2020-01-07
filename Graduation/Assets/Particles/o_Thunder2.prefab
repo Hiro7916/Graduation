@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2818213462358582789}
   - component: {fileID: 5664459721219112396}
   - component: {fileID: 3948790105483587738}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: o_Thunder2
   m_TagString: Magic
   m_Icon: {fileID: 0}

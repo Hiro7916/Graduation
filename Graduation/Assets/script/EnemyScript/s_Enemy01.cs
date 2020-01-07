@@ -135,7 +135,8 @@ private int attac1;
     ///<summary>移動</summary>
     private void Move()
 {
-        transform.position+=transform.forward*0.3f;
+   //transform.position+=transform.forward*0.0005f;
+        transform.position+=(transform.forward*7)*Time.deltaTime;
         moveTimer--;
         if (moveTimer <= 0)
         {
@@ -220,7 +221,8 @@ Debug.Log(attac1);
             AttackThink();
         }
         //rig.AddForce(transform.forward * 20);
-        transform.position+=transform.forward*0.15f;
+ // transform.position+=transform.forward*0.0005f;
+        transform.position+=(transform.forward*10)*Time.deltaTime;;
     }
 
     ///<summary>移動か待機か考える</summary>
