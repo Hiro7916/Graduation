@@ -213,7 +213,7 @@ if(!HitstageChack(moveForward*Time.deltaTime))
     {
         Ray ray = new Ray(transform.position + new Vector3(0, 0, 0), vec);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit,2))
+        if (Physics.Raycast(ray, out hit,2.5f))
             if (hit.transform.tag == "stage")
             {
                 return true;
