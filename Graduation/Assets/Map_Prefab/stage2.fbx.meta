@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: 8ad410bdb97e94948b6017c0e92a7a7d
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: group
+    100002: pPlane1
+    100004: pPlane2
+    100006: pPlane3
+    100008: skeleton_bunkai:sub01
+    100010: skeleton_bunkai:sub04
+    100012: skeleton_bunkai:sub06
+    100014: skeleton_bunkai:sub07
+    100016: skeleton_bunkai:sub12
+    100018: skeleton_bunkai:sub13
+    100020: skeleton_bunkai:sub14
+    100022: skeleton_bunkai:transform10
+    100024: skeleton_bunkai:transform11
+    100026: skeleton_bunkai:transform12
+    100028: skeleton_bunkai:transform13
+    100030: skeleton_bunkai:transform14
+    100032: skeleton_bunkai:transform15
+    100034: skeleton_bunkai:transform16
+    100036: skeleton_bunkai:transform17
+    100038: skeleton_bunkai:transform18
+    100040: skeleton_bunkai:transform19
+    100042: skeleton_bunkai:transform2
+    100044: skeleton_bunkai:transform20
+    100046: skeleton_bunkai:transform21
+    100048: skeleton_bunkai:transform22
+    100050: skeleton_bunkai:transform23
+    100052: skeleton_bunkai:transform3
+    100054: skeleton_bunkai:transform4
+    100056: skeleton_bunkai:transform5
+    100058: skeleton_bunkai:transform6
+    100060: skeleton_bunkai:transform7
+    100062: skeleton_bunkai:transform8
+    100064: skeleton_bunkai:transform9
+    100066: //RootNode
+    100068: sub01
+    100070: sub02
+    100072: sub06
+    100074: sub07
+    100076: sub08
+    100078: sub09
+    100080: sub10
+    100082: sub13
+    100084: sub14
+    100086: sub15
+    100088: sub16
+    100090: sub17
+    100092: sub18
+    400000: group
+    400002: pPlane1
+    400004: pPlane2
+    400006: pPlane3
+    400008: skeleton_bunkai:sub01
+    400010: skeleton_bunkai:sub04
+    400012: skeleton_bunkai:sub06
+    400014: skeleton_bunkai:sub07
+    400016: skeleton_bunkai:sub12
+    400018: skeleton_bunkai:sub13
+    400020: skeleton_bunkai:sub14
+    400022: skeleton_bunkai:transform10
+    400024: skeleton_bunkai:transform11
+    400026: skeleton_bunkai:transform12
+    400028: skeleton_bunkai:transform13
+    400030: skeleton_bunkai:transform14
+    400032: skeleton_bunkai:transform15
+    400034: skeleton_bunkai:transform16
+    400036: skeleton_bunkai:transform17
+    400038: skeleton_bunkai:transform18
+    400040: skeleton_bunkai:transform19
+    400042: skeleton_bunkai:transform2
+    400044: skeleton_bunkai:transform20
+    400046: skeleton_bunkai:transform21
+    400048: skeleton_bunkai:transform22
+    400050: skeleton_bunkai:transform23
+    400052: skeleton_bunkai:transform3
+    400054: skeleton_bunkai:transform4
+    400056: skeleton_bunkai:transform5
+    400058: skeleton_bunkai:transform6
+    400060: skeleton_bunkai:transform7
+    400062: skeleton_bunkai:transform8
+    400064: skeleton_bunkai:transform9
+    400066: //RootNode
+    400068: sub01
+    400070: sub02
+    400072: sub06
+    400074: sub07
+    400076: sub08
+    400078: sub09
+    400080: sub10
+    400082: sub13
+    400084: sub14
+    400086: sub15
+    400088: sub16
+    400090: sub17
+    400092: sub18
+    2100000: skeleton_bunkai_Bones___Vray1
+    2100002: Bones___Vray1
+    2100004: skeleton_bunkai_White___Vray1
+    2100006: Default_Material
+    2100008: Ground
+    2300000: skeleton_bunkai:sub14
+    3300000: skeleton_bunkai:sub14
+    4300000: skeleton_bunkai:sub14
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ground
+    second: {fileID: 2100000, guid: 72d605fa4ad79ab4793df4def212b6b0, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 4
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
