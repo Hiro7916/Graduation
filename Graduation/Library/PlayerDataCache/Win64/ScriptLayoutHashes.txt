@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/usaha/Desktop/gg/Graduation.exe
+D:/myth/Myth.exe
 SceneListBegin?
 Assets/Scenes/TitleH.unity
 Assets/Scenes/LoadSceneH.unity
